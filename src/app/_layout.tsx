@@ -1,11 +1,11 @@
 import "@/global.css";
-import "@/i18n";
 
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+// Importing @/i18n also sets up i18next before any screen renders.
 import { loadSavedLanguage } from "@/i18n";
 
 export default function RootLayout() {

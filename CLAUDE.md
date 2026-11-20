@@ -51,6 +51,7 @@ src/
     locales/<lang>/<namespace>.json   one file per feature area
   global.css      Tailwind directives
 scripts/          Dev scripts (translation check)
+.github/workflows CI: runs typecheck, lint, translation check and a web build on every push
 ```
 
 Keep non-route code out of `src/app/`. Import with the `@/` alias (`@/i18n`, `@/components/...`).
@@ -60,7 +61,8 @@ Keep non-route code out of `src/app/`. Import with the `@/` alias (`@/i18n`, `@/
 ```bash
 npm start                 # dev server (scan the QR code with Expo Go)
 npm run web               # run in the browser
-npm run check             # typecheck + translation check: run before every commit
+npm run check             # typecheck + lint + translation check: run before every commit
+npm run lint              # lint only (includes the no-hard-coded-text rule)
 npx expo install <pkg>    # ALWAYS use this to add packages (picks SDK-compatible versions)
 npx expo start -c         # clear Metro cache (after changing tailwind or babel config)
 ```
@@ -71,7 +73,8 @@ npx expo start -c         # clear Metro cache (after changing tailwind or babel 
 
 - **No hard-coded UI text.** Every user-visible string goes through `t()` and lives
   in `src/i18n/locales/<lang>/<namespace>.json`. Only exception: language autonyms
-  in `languages.ts`.
+  in `languages.ts`. The lint rule `i18next/no-literal-string` enforces this; don't
+  disable it to make a check pass.
 - **Add every new key to all three languages in the same change.** Draft id and
   zh-Hans yourself, and tell me which strings need native-speaker review.
 - English is the source of truth for keys; `t()` keys are type-checked against it.

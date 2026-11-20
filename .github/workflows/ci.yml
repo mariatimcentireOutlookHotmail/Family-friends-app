@@ -24,6 +24,9 @@ jobs:
       - name: Type check
         run: npm run typecheck
 
+      - name: Lint (includes the no-hard-coded-text rule)
+        run: npm run lint
+
       - name: Translation check (missing keys, broken plural syntax)
         run: npm run i18n:check
 

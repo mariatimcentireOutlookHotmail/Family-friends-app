@@ -28,6 +28,9 @@
   "devDependencies": {
     "@types/react": "~19.3.0",
     "babel-preset-expo": "^58.0.26",
+    "eslint": "^9.39.5",
+    "eslint-config-expo": "~58.0.4",
+    "eslint-plugin-i18next": "^6.1.5",
     "typescript": "~6.0.3"
   },
   "scripts": {
@@ -37,7 +40,8 @@
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
     "i18n:check": "node scripts/check-translations.mjs",
-    "check": "npm run typecheck && npm run i18n:check"
+    "check": "npm run typecheck && npm run lint && npm run i18n:check",
+    "lint": "expo lint"
   },
   "private": true
 }
