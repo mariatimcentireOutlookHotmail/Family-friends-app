@@ -3,5 +3,13 @@
     "label": "Bahasa",
     "hint": "Pilih bahasa untuk aplikasi.",
     "useDevice": "Gunakan bahasa perangkat"
+  },
+  "connection": {
+    "label": "Koneksi server",
+    "checking": "Memeriksa…",
+    "connected": "Terhubung ke Supabase",
+    "notConfigured": "Belum diatur: tambahkan URL dan kunci Supabase ke file .env",
+    "badKey": "Supabase menolak kunci: periksa kunci di .env",
+    "unreachable": "Tidak dapat menjangkau Supabase: periksa koneksi internet dan URL di .env"
   }
 }

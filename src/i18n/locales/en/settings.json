@@ -3,5 +3,13 @@
     "label": "Language",
     "hint": "Choose the language for the app.",
     "useDevice": "Use device language"
+  },
+  "connection": {
+    "label": "Server connection",
+    "checking": "Checking…",
+    "connected": "Connected to Supabase",
+    "notConfigured": "Not set up yet: add your Supabase URL and key to the .env file",
+    "badKey": "Supabase rejected the key: check the key in .env",
+    "unreachable": "Can't reach Supabase: check your internet connection and the URL in .env"
   }
 }

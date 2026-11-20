@@ -22,7 +22,7 @@ plan marks as a decision.
 |---|---|
 | App | React Native + Expo (SDK 58), Expo Router, TypeScript (strict) |
 | Styling | NativeWind v4 (Tailwind CSS 3) via `className` |
-| Data fetching | TanStack Query + Supabase JS client (not added yet) |
+| Data fetching | TanStack Query + Supabase JS client (`src/lib/supabase.ts`) |
 | Tree rendering | react-native-svg, d3-hierarchy for layout math only (not added yet) |
 | Gestures | react-native-gesture-handler + Reanimated |
 | Backend | Supabase: Postgres, Auth, Row-Level Security, Storage, Edge Functions |
@@ -44,6 +44,7 @@ instead of relying on memory.
 src/
   app/            Expo Router routes only (every file is a screen; _layout.tsx = navigator)
   components/     Shared UI components
+  lib/            Non-UI code: Supabase client, data hooks
   i18n/
     index.ts      i18next setup, device language, setLanguage()
     languages.ts  Supported languages and their autonyms
@@ -119,10 +120,11 @@ npx expo start -c         # clear Metro cache (after changing tailwind or babel 
 
 ### Secrets
 
+- Always import the client from `@/lib/supabase`; never create another one.
 - Never commit secrets. `.env` and `.env.*` are git-ignored; only `.env.example`
   (placeholder values) is committed.
 - Anything prefixed `EXPO_PUBLIC_` is bundled into the app and visible to anyone.
-  Only the Supabase URL and **anon** key may go there. The **service_role** key
+  Only the Supabase URL and the public key (publishable/anon) may go there. The **service_role** key
   and other server secrets live only in Supabase Edge Function secrets.
 
 ### Quality

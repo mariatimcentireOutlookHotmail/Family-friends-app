@@ -3,5 +3,13 @@
     "label": "语言",
     "hint": "选择应用的显示语言。",
     "useDevice": "使用设备语言"
+  },
+  "connection": {
+    "label": "服务器连接",
+    "checking": "正在检查…",
+    "connected": "已连接到 Supabase",
+    "notConfigured": "尚未设置：请在 .env 文件中添加 Supabase 的 URL 和密钥",
+    "badKey": "Supabase 拒绝了密钥：请检查 .env 中的密钥",
+    "unreachable": "无法连接到 Supabase：请检查网络连接和 .env 中的 URL"
   }
 }

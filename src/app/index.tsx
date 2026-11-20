@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { ScrollView, Text, View } from "react-native";
 
+import { ConnectionStatus } from "@/components/ConnectionStatus";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export default function HomeScreen() {
@@ -39,6 +40,8 @@ export default function HomeScreen() {
             {t("home.today", { date: today })}
           </Text>
         </View>
+
+        <ConnectionStatus />
 
         <LanguageSwitcher />
       </View>
