@@ -4,6 +4,7 @@
   "main": "expo-router/entry",
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0",
+    "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.119.2",
     "@tanstack/react-query": "^5.108.1",
     "expo": "~58.0.26",
@@ -28,12 +29,16 @@
     "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.17",
+    "@types/node": "^22.20.5",
     "@types/react": "~19.3.0",
     "babel-preset-expo": "^58.0.26",
     "eslint": "^9.39.5",
     "eslint-config-expo": "~58.0.4",
     "eslint-plugin-i18next": "^6.1.5",
-    "typescript": "~6.0.3"
+    "supabase": "^3.2.0",
+    "typescript": "~6.0.3",
+    "vitest": "^5.1.1"
   },
   "scripts": {
     "start": "expo start",
@@ -43,7 +48,11 @@
     "typecheck": "tsc --noEmit",
     "i18n:check": "node scripts/check-translations.mjs",
     "check": "npm run typecheck && npm run lint && npm run i18n:check",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:push": "supabase db push --linked",
+    "ci": "npm run check && npm test && expo export --platform web --output-dir dist"
   },
   "private": true
 }

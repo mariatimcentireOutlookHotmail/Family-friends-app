@@ -45,6 +45,11 @@ src/
   app/            Expo Router routes only (every file is a screen; _layout.tsx = navigator)
   components/     Shared UI components
   lib/            Non-UI code: Supabase client, data hooks
+supabase/
+  config.toml     Supabase CLI settings
+  migrations/     Database changes as numbered SQL files (the source of truth for the schema)
+tests/
+  db/             RLS tests: PGlite (in-memory Postgres) + a stand-in for Supabase's auth
   i18n/
     index.ts      i18next setup, device language, setLanguage()
     languages.ts  Supported languages and their autonyms
@@ -52,7 +57,7 @@ src/
     locales/<lang>/<namespace>.json   one file per feature area
   global.css      Tailwind directives
 scripts/          Dev scripts (translation check)
-.github/workflows CI: runs typecheck, lint, translation check and a web build on every push
+.github/workflows CI: runs `npm run ci` on every push
 ```
 
 Keep non-route code out of `src/app/`. Import with the `@/` alias (`@/i18n`, `@/components/...`).
@@ -64,6 +69,10 @@ npm start                 # dev server (scan the QR code with Expo Go)
 npm run web               # run in the browser
 npm run check             # typecheck + lint + translation check: run before every commit
 npm run lint              # lint only (includes the no-hard-coded-text rule)
+npm test                  # Vitest: privacy-rule (RLS) tests in tests/db, plus logic tests
+npm run ci                # everything CI runs: check + test + web build
+npx supabase migration new <name>   # create a new, empty migration file
+npm run db:push           # apply new migrations to the linked Supabase project
 npx expo install <pkg>    # ALWAYS use this to add packages (picks SDK-compatible versions)
 npx expo start -c         # clear Metro cache (after changing tailwind or babel config)
 ```
@@ -117,6 +126,22 @@ npx expo start -c         # clear Metro cache (after changing tailwind or babel 
 - Invite tokens: single-use, stored hashed, expire after 14 days, revocable.
 - Support account deletion (anonymized placeholder if others depend on the node)
   and data export (JSON and GEDCOM).
+
+### Database changes
+
+- Every schema change is a new migration in `supabase/migrations/` (create it with
+  `npx supabase migration new <name>`). Never edit a migration that has already
+  been pushed; write a new one instead. Never change the schema in the Supabase
+  dashboard.
+- Every new table: enable RLS, `revoke all ... from anon`, grant only what
+  `authenticated` needs, and write policies for select/insert/update/delete.
+- Every policy gets tests in `tests/db/` that prove both what is allowed and
+  what is blocked (other members, outsiders, signed-out visitors).
+- Helper functions used by policies go in the `private` schema as
+  `security definer` with `set search_path = ''`.
+- Use `(select auth.uid())` in policies, not bare `auth.uid()`.
+- `tests/db/supabase-stub.sql` is test-only; never copy it into a migration.
+- After tests pass, I push with `npm run db:push`; don't push for me.
 
 ### Secrets
 
