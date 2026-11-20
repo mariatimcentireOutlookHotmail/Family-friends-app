@@ -1,0 +1,71 @@
+{
+  "page": {
+    "title": "Orang",
+    "alsoKnownAs": "Juga dikenal sebagai",
+    "deceased": "Almarhum/almarhumah",
+    "noRelatives": "Belum ada kerabat yang ditambahkan.",
+    "addRelative": "Tambah kerabat",
+    "viewOnly": "Anda dapat melihat pohon ini tetapi tidak dapat mengubahnya.",
+    "notFound": "Orang ini tidak ditemukan, atau Anda tidak punya akses.",
+    "loadError": "Gagal memuat data orang ini.",
+    "retry": "Coba lagi",
+    "you": "Anda",
+    "relationToYou": "Hubungan dengan Anda: {relation}"
+  },
+  "sections": {
+    "parents": "Orang tua",
+    "partners": "Pasangan",
+    "children": "Anak",
+    "siblings": "Saudara kandung",
+    "friends": "Teman"
+  },
+  "relation": {
+    "parent": "Orang tua",
+    "child": "Anak",
+    "partner": "Pasangan",
+    "sibling": "Saudara",
+    "friend": "Teman"
+  },
+  "subtypes": {
+    "biological": "Kandung",
+    "adoptive": "Angkat",
+    "step": "Tiri",
+    "foster": "Asuh",
+    "married": "Menikah",
+    "unmarried": "Tidak menikah",
+    "divorced": "Bercerai",
+    "widowed": "Ditinggal wafat",
+    "full": "Sekandung",
+    "half": "Seayah/seibu"
+  },
+  "certainty": {
+    "label": "Seberapa yakin Anda?",
+    "confirmed": "Yakin",
+    "probable": "Mungkin",
+    "uncertain": "Tidak yakin"
+  },
+  "living": {
+    "label": "Masih hidup atau sudah meninggal?",
+    "living": "Masih hidup",
+    "deceased": "Sudah meninggal",
+    "unknown": "Tidak tahu"
+  },
+  "add": {
+    "title": "Tambah kerabat",
+    "heading": "Tambah kerabat {name}",
+    "relationLabel": "Apa hubungannya dengan {name}?",
+    "subtypeLabel": "Jenis",
+    "theirName": "Namanya",
+    "alsoChildOf": "Juga anak dari {name}",
+    "submit": "Tambah",
+    "submitting": "Menambahkan…",
+    "errors": {
+      "nameRequired": "Masukkan nama depan atau nama keluarga.",
+      "loop": "Ini akan membuat seseorang menjadi leluhurnya sendiri. Periksa kembali hubungannya.",
+      "tooManyParents": "Orang ini sudah memiliki dua orang tua kandung.",
+      "duplicate": "Kedua orang ini sudah terhubung dengan cara ini.",
+      "notAllowed": "Anda dapat melihat pohon ini tetapi tidak dapat mengubahnya.",
+      "failed": "Gagal menambahkan orang ini. Silakan coba lagi."
+    }
+  }
+}

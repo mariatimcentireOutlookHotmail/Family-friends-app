@@ -50,3 +50,20 @@ export function formatFullName({ given, family, familyFirst }: NameParts): strin
   }
   return `${g} ${f}`;
 }
+
+/**
+ * A saved name → editable parts, including whether it was shown family name
+ * first. Old entries with only a full name keep it all in "given".
+ */
+export function splitSavedName(name: {
+  given?: string | null;
+  family?: string | null;
+  full_display: string;
+}): NameParts {
+  const given = name.given ?? "";
+  const family = name.family ?? "";
+  if (!given && !family) return { given: name.full_display, family: "", familyFirst: false };
+  if (!given || !family) return { given, family, familyFirst: isFamilyFirstByDefault(detectScript(given, family)) };
+  const familyFirst = formatFullName({ given, family, familyFirst: true }) === name.full_display;
+  return { given, family, familyFirst };
+}

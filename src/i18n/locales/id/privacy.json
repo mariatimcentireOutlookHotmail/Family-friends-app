@@ -1,0 +1,56 @@
+{
+  "levels": {
+    "private": "Hanya dia",
+    "privateSelf": "Hanya saya",
+    "privateUnclaimed": "Hanya pemilik pohon",
+    "immediate": "Keluarga inti",
+    "tree": "Seluruh pohon keluarga"
+  },
+  "fields": {
+    "birth_date": "Tanggal dan bulan lahir",
+    "death_date": "Tanggal dan bulan wafat",
+    "contact": "Kontak"
+  },
+  "screen": {
+    "title": "Privasi",
+    "heading": "Siapa yang dapat melihat data {name}",
+    "intro": "Pilih siapa di pohon keluarga yang dapat melihat setiap data. Keluarga inti berarti orang tua, anak, pasangan, dan saudara kandung.",
+    "yearNote": "Tahun lahir dan wafat selalu terlihat oleh pohon keluarga, agar usia dan sebutan seperti kakak/adik dapat ditentukan.",
+    "save": "Simpan",
+    "saving": "Menyimpan…",
+    "saved": "Tersimpan.",
+    "failed": "Gagal menyimpan. Silakan coba lagi.",
+    "button": "Privasi"
+  },
+  "contacts": {
+    "title": "Kontak",
+    "phone": "Telepon",
+    "email": "Email",
+    "address": "Alamat",
+    "hiddenNote": "Kontak bersifat pribadi. Hanya orang yang bersangkutan (atau pemilik pohon, jika profil belum diklaim) yang dapat melihat dan mengubahnya.",
+    "privateHint": "Pribadi kecuali orang tersebut memilih untuk membagikannya."
+  },
+  "country": {
+    "label": "Negara tempat tinggal",
+    "hint": "Digunakan untuk melindungi anak: di bawah batas usia negara ini, hanya keluarga dekat yang dapat melihat datanya.",
+    "ID": "Indonesia",
+    "CN": "Tiongkok",
+    "MY": "Malaysia",
+    "SG": "Singapura",
+    "US": "Amerika Serikat",
+    "other": "Lainnya / tidak yakin"
+  },
+  "minor": {
+    "name": "Anggota keluarga (privat)",
+    "note": "Ini adalah anak. Datanya hanya terlihat oleh keluarga dekat."
+  },
+  "note": {
+    "title": "Tentang privasi",
+    "link": "Cara kami melindungi privasi keluarga Anda",
+    "body1": "Keluarga & Teman menyimpan pohon keluarga yang Anda buat: nama, hubungan antar orang, tanggal lahir dan wafat, serta kontak yang Anda tambahkan.",
+    "body2": "Hanya anggota pohon keluarga yang dapat melihatnya. Di dalam pohon, tanggal lahir (tanggal dan bulan) secara bawaan hanya terlihat oleh keluarga inti, dan kontak bersifat pribadi. Setiap orang dapat mengubah pengaturan ini untuk profilnya sendiri.",
+    "body3": "Anak di bawah batas usia negaranya ditampilkan kepada orang lain sebagai \"Anggota keluarga (privat)\"; hanya keluarga dekatnya yang dapat melihat datanya.",
+    "body4": "Tahun lahir dan wafat terlihat oleh seluruh pohon agar usia dan sebutan kekerabatan dapat ditentukan. Orang yang sudah meninggal ditampilkan kepada seluruh pohon keluarga.",
+    "body5": "Data Anda disimpan di Supabase. Data tidak pernah dijual atau ditampilkan kepada siapa pun di luar pohon keluarga Anda."
+  }
+}

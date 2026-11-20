@@ -1,0 +1,71 @@
+{
+  "page": {
+    "title": "人物",
+    "alsoKnownAs": "又名",
+    "deceased": "已故",
+    "noRelatives": "还没有添加亲人。",
+    "addRelative": "添加亲人",
+    "viewOnly": "你可以查看这个家谱，但不能修改。",
+    "notFound": "找不到此人，或你没有访问权限。",
+    "loadError": "无法加载此人的信息。",
+    "retry": "重试",
+    "you": "你",
+    "relationToYou": "与你的关系：{relation}"
+  },
+  "sections": {
+    "parents": "父母",
+    "partners": "伴侣",
+    "children": "子女",
+    "siblings": "兄弟姐妹",
+    "friends": "朋友"
+  },
+  "relation": {
+    "parent": "父母",
+    "child": "子女",
+    "partner": "伴侣",
+    "sibling": "兄弟姐妹",
+    "friend": "朋友"
+  },
+  "subtypes": {
+    "biological": "亲生",
+    "adoptive": "收养",
+    "step": "继",
+    "foster": "寄养",
+    "married": "已婚",
+    "unmarried": "未婚",
+    "divorced": "离婚",
+    "widowed": "丧偶",
+    "full": "同父同母",
+    "half": "同父异母/同母异父"
+  },
+  "certainty": {
+    "label": "你有多确定？",
+    "confirmed": "确定",
+    "probable": "可能",
+    "uncertain": "不确定"
+  },
+  "living": {
+    "label": "在世还是已故？",
+    "living": "在世",
+    "deceased": "已故",
+    "unknown": "不知道"
+  },
+  "add": {
+    "title": "添加亲人",
+    "heading": "添加{name}的亲人",
+    "relationLabel": "此人和{name}是什么关系？",
+    "subtypeLabel": "类型",
+    "theirName": "此人的姓名",
+    "alsoChildOf": "也是{name}的子女",
+    "submit": "添加",
+    "submitting": "正在添加…",
+    "errors": {
+      "nameRequired": "请输入名或姓。",
+      "loop": "这会让某人成为自己的祖先。请检查关系。",
+      "tooManyParents": "此人已经有两位亲生父母。",
+      "duplicate": "这两个人已经以这种方式关联。",
+      "notAllowed": "你可以查看这个家谱，但不能修改。",
+      "failed": "无法添加此人，请重试。"
+    }
+  }
+}

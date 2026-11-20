@@ -1,0 +1,40 @@
+{
+  "fields": {
+    "birthLabel": "Birth date (optional)",
+    "yourBirthLabel": "Your birthday (optional)",
+    "deathLabel": "Date of death (optional)",
+    "year": "Year",
+    "month": "Month",
+    "day": "Day",
+    "yearPlaceholder": "e.g. 1952",
+    "monthPlaceholder": "1–12",
+    "dayPlaceholder": "1–31",
+    "qualifierLabel": "How exact?",
+    "hint": "A year alone is fine. Only close family will see the day and month.",
+    "hiddenKept": "The day and month are only visible to close family. They're kept unless you remove the date.",
+    "clear": "Clear date"
+  },
+  "qualifiers": {
+    "exact": "Exact",
+    "about": "About",
+    "before": "Before",
+    "after": "After"
+  },
+  "display": {
+    "about": "about {date}",
+    "before": "before {date}",
+    "after": "after {date}",
+    "born": "Born {date}",
+    "died": "Died {date}",
+    "age": "{age, plural, one {# year old} other {# years old}}",
+    "ageAbout": "{age, plural, one {about # year old} other {about # years old}}",
+    "hiddenNote": "Day and month visible to close family only"
+  },
+  "errors": {
+    "needsYearOrDayMonth": "Enter a year, or a day and a month.",
+    "dayNeedsMonth": "A day needs a month.",
+    "invalidDate": "That date doesn't exist.",
+    "inFuture": "That date is in the future.",
+    "deathBeforeBirth": "The date of death is before the birth date."
+  }
+}

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { detectScript, formatFullName, guessNameLang, isFamilyFirstByDefault } from "./names";
+import { detectScript, formatFullName, guessNameLang, isFamilyFirstByDefault, splitSavedName } from "./names";
 
 describe("detectScript", () => {
   it("recognises Chinese characters", () => {
@@ -51,5 +51,29 @@ describe("formatFullName", () => {
 
   it("tidies extra spaces", () => {
     expect(formatFullName({ given: "  Siti   Aminah ", family: " ", familyFirst: false })).toBe("Siti Aminah");
+  });
+});
+
+describe("splitSavedName (for editing)", () => {
+  it("recovers the display order from the saved full name", () => {
+    expect(splitSavedName({ given: "美玲", family: "陈", full_display: "陈美玲" }))
+      .toEqual({ given: "美玲", family: "陈", familyFirst: true });
+    expect(splitSavedName({ given: "Mei Ling", family: "Tan", full_display: "Tan Mei Ling" }))
+      .toEqual({ given: "Mei Ling", family: "Tan", familyFirst: true });
+    expect(splitSavedName({ given: "Mei Ling", family: "Tan", full_display: "Mei Ling Tan" }))
+      .toEqual({ given: "Mei Ling", family: "Tan", familyFirst: false });
+  });
+
+  it("keeps a name that only has a full form", () => {
+    expect(splitSavedName({ given: null, family: null, full_display: "Ah Kow" }))
+      .toEqual({ given: "Ah Kow", family: "", familyFirst: false });
+  });
+
+  it("round-trips: splitting then formatting gives the same name", () => {
+    for (const full of ["陈美玲", "Tan Mei Ling", "Mei Ling Tan"]) {
+      const saved =
+        full === "陈美玲" ? { given: "美玲", family: "陈" } : { given: "Mei Ling", family: "Tan" };
+      expect(formatFullName(splitSavedName({ ...saved, full_display: full }))).toBe(full);
+    }
   });
 });

@@ -3,12 +3,14 @@ import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from "react-native";
 
-import { NameEditor, emptyName, type NameDraft } from "@/components/NameEditor";
+import { DateField, checkDates } from "@/components/DateField";
+import { NameEditor, draftsToNames, emptyName, type NameDraft } from "@/components/NameEditor";
 import { Button } from "@/components/ui/Button";
 import { ChoiceChips } from "@/components/ui/ChoiceChips";
 import { TextField } from "@/components/ui/TextField";
 import { LANGUAGE_AUTONYMS, SUPPORTED_LANGUAGES, isSupportedLanguage, type Language } from "@/i18n/languages";
-import { detectScript, formatFullName, guessNameLang } from "@/lib/names";
+import { draftToDate, emptyDateDraft, toPayload, type DateDraft } from "@/lib/dates";
+import { formatFullName } from "@/lib/names";
 import { useCreateTree, type Sex } from "@/lib/trees";
 
 const MAX_NAMES = 10;
@@ -25,6 +27,8 @@ export default function CreateTreeScreen() {
   );
   const [names, setNames] = useState<NameDraft[]>([emptyName("name-0")]);
   const [sex, setSex] = useState<Sex>("unknown");
+  const [birth, setBirth] = useState<DateDraft>(emptyDateDraft);
+  const [birthError, setBirthError] = useState<string | null>(null);
   const [treeNameError, setTreeNameError] = useState<string | null>(null);
   const [nameErrors, setNameErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
@@ -36,7 +40,7 @@ export default function CreateTreeScreen() {
   };
 
   const addName = () =>
-    setNames((list) => [...list, emptyName(`name-${nextKey.current++}`)]);
+    setNames((list) => [...list, emptyName(`name-${nextKey.current++}`, false)]);
 
   const removeName = (index: number) => setNames((list) => list.filter((_, i) => i !== index));
 
@@ -49,24 +53,17 @@ export default function CreateTreeScreen() {
     });
     setTreeNameError(trimmedTreeName ? null : t("create.errors.treeNameRequired"));
     setNameErrors(missingNames);
-    if (!trimmedTreeName || Object.keys(missingNames).length > 0) return;
+    const dateErrors = checkDates(birth, null);
+    setBirthError(dateErrors.birth ? t(`errors.${dateErrors.birth}`, { ns: "dates" }) : null);
+    if (!trimmedTreeName || Object.keys(missingNames).length > 0 || dateErrors.birth) return;
 
     createTree.mutate(
       {
         treeName: trimmedTreeName,
         treeLocale,
         sex,
-        names: names.map((n, i) => {
-          const script = detectScript(n.given, n.family);
-          return {
-            given: n.given.trim() || null,
-            family: n.family.trim() || null,
-            full_display: formatFullName(n),
-            script,
-            lang: guessNameLang(script),
-            type: i === 0 ? "birth" : n.type,
-          };
-        }),
+        names: draftsToNames(names),
+        birth: toPayload(draftToDate(birth)),
       },
       {
         // Go back to the home screen we came from (or open it, if this
@@ -125,6 +122,8 @@ export default function CreateTreeScreen() {
                 key={name.key}
                 value={name}
                 isMain={index === 0}
+                mainTitle={t("names.mainName")}
+                autofillSelf
                 onChange={(next) => updateName(index, next)}
                 onRemove={index > 0 ? () => removeName(index) : undefined}
                 error={nameErrors[name.key]}
@@ -135,6 +134,17 @@ export default function CreateTreeScreen() {
               <Button variant="secondary" label={t("names.add")} onPress={addName} />
             ) : null}
           </View>
+
+          <DateField
+            label={t("fields.yourBirthLabel", { ns: "dates" })}
+            value={birth}
+            onChange={(next) => {
+              setBirth(next);
+              setBirthError(null);
+            }}
+            error={birthError}
+            showHint
+          />
 
           <ChoiceChips
             label={t("sex.label")}

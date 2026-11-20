@@ -1,0 +1,49 @@
+{
+  "person": {
+    "title": "Edit person",
+    "heading": "Edit {name}",
+    "save": "Save changes",
+    "saving": "Saving…",
+    "claimedNote": "{name} has claimed this profile, so only they can change their names and details.",
+    "errors": {
+      "nameRequired": "Enter a given name or a family name.",
+      "notAllowed": "You can't edit this person. Once someone has claimed their profile, only they can change it.",
+      "failed": "Couldn't save. Please try again."
+    }
+  },
+  "delete": {
+    "title": "Delete this person",
+    "explain": "This removes {name}, their names and their links to others. It can't be undone.",
+    "button": "Delete {name}",
+    "confirm": "Are you sure you want to delete {name}?",
+    "confirmButton": "Yes, delete",
+    "cancel": "Cancel",
+    "deleting": "Deleting…",
+    "failed": "Couldn't delete this person. Please try again."
+  },
+  "page": {
+    "edit": "Edit",
+    "manageLinks": "Edit relationships",
+    "doneManaging": "Done",
+    "manageHint": "Tap a relative to change or remove the relationship."
+  },
+  "link": {
+    "title": "Edit relationship",
+    "parent": "{a} is a parent of {b}",
+    "partner": "{a} and {b} are partners",
+    "sibling": "{a} and {b} are siblings",
+    "friend": "{a} and {b} are friends",
+    "subtypeLabel": "Type",
+    "save": "Save",
+    "saving": "Saving…",
+    "removeTitle": "Remove this relationship",
+    "removeExplain": "Both people stay in the tree; only the link between them is removed.",
+    "remove": "Remove relationship",
+    "confirm": "Remove this relationship?",
+    "confirmButton": "Yes, remove",
+    "cancel": "Cancel",
+    "removing": "Removing…",
+    "notFound": "This relationship couldn't be found. It may have been removed.",
+    "failed": "Couldn't save the change. Please try again."
+  }
+}

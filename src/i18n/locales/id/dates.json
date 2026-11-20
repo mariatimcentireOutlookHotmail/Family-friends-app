@@ -1,0 +1,40 @@
+{
+  "fields": {
+    "birthLabel": "Tanggal lahir (opsional)",
+    "yourBirthLabel": "Tanggal lahir Anda (opsional)",
+    "deathLabel": "Tanggal wafat (opsional)",
+    "year": "Tahun",
+    "month": "Bulan",
+    "day": "Tanggal",
+    "yearPlaceholder": "mis. 1952",
+    "monthPlaceholder": "1–12",
+    "dayPlaceholder": "1–31",
+    "qualifierLabel": "Seberapa pasti?",
+    "hint": "Tahun saja sudah cukup. Tanggal dan bulan hanya terlihat oleh keluarga dekat.",
+    "hiddenKept": "Tanggal dan bulan hanya terlihat oleh keluarga dekat. Keduanya tetap disimpan kecuali Anda menghapus tanggalnya.",
+    "clear": "Hapus tanggal"
+  },
+  "qualifiers": {
+    "exact": "Pasti",
+    "about": "Sekitar",
+    "before": "Sebelum",
+    "after": "Setelah"
+  },
+  "display": {
+    "about": "sekitar {date}",
+    "before": "sebelum {date}",
+    "after": "setelah {date}",
+    "born": "Lahir {date}",
+    "died": "Wafat {date}",
+    "age": "{age, plural, other {# tahun}}",
+    "ageAbout": "{age, plural, other {sekitar # tahun}}",
+    "hiddenNote": "Tanggal dan bulan hanya terlihat oleh keluarga dekat"
+  },
+  "errors": {
+    "needsYearOrDayMonth": "Masukkan tahun, atau tanggal dan bulan.",
+    "dayNeedsMonth": "Tanggal harus disertai bulan.",
+    "invalidDate": "Tanggal tersebut tidak ada.",
+    "inFuture": "Tanggal tersebut di masa depan.",
+    "deathBeforeBirth": "Tanggal wafat lebih awal dari tanggal lahir."
+  }
+}

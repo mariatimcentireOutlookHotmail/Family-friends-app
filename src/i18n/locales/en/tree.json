@@ -30,6 +30,7 @@
   },
   "nameTypes": {
     "birth": "Birth name",
+    "aka": "Also known as",
     "married": "Married name",
     "nickname": "Nickname",
     "religious": "Religious name",
@@ -49,6 +50,10 @@
     "peopleCount": "{count, plural, one {# person} other {# people}}",
     "you": "You",
     "loadError": "Couldn't load your family tree.",
-    "retry": "Try again"
+    "retry": "Try again",
+    "aka": "aka {names}",
+    "list": "List",
+    "cards": "Cards",
+    "viewLabel": "Show as"
   }
 }

@@ -1,0 +1,40 @@
+{
+  "fields": {
+    "birthLabel": "出生日期（可选）",
+    "yourBirthLabel": "你的生日（可选）",
+    "deathLabel": "去世日期（可选）",
+    "year": "年",
+    "month": "月",
+    "day": "日",
+    "yearPlaceholder": "例如 1952",
+    "monthPlaceholder": "1–12",
+    "dayPlaceholder": "1–31",
+    "qualifierLabel": "精确程度",
+    "hint": "只填年份也可以。月和日只有近亲可见。",
+    "hiddenKept": "月和日只有近亲可见。除非你删除日期，否则会保留。",
+    "clear": "清除日期"
+  },
+  "qualifiers": {
+    "exact": "确切",
+    "about": "约",
+    "before": "之前",
+    "after": "之后"
+  },
+  "display": {
+    "about": "约{date}",
+    "before": "{date}之前",
+    "after": "{date}之后",
+    "born": "生于{date}",
+    "died": "卒于{date}",
+    "age": "{age, plural, other {#岁}}",
+    "ageAbout": "{age, plural, other {约#岁}}",
+    "hiddenNote": "月和日仅近亲可见"
+  },
+  "errors": {
+    "needsYearOrDayMonth": "请输入年份，或月和日。",
+    "dayNeedsMonth": "填写日时需要填写月。",
+    "invalidDate": "该日期不存在。",
+    "inFuture": "该日期在未来。",
+    "deathBeforeBirth": "去世日期早于出生日期。"
+  }
+}

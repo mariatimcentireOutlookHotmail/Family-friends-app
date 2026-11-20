@@ -1,0 +1,49 @@
+{
+  "person": {
+    "title": "编辑资料",
+    "heading": "编辑{name}的资料",
+    "save": "保存修改",
+    "saving": "正在保存…",
+    "claimedNote": "{name}已认领此资料，只有本人可以修改姓名和信息。",
+    "errors": {
+      "nameRequired": "请输入名或姓。",
+      "notAllowed": "你不能编辑此人。资料被认领后，只有本人可以修改。",
+      "failed": "保存失败，请重试。"
+    }
+  },
+  "delete": {
+    "title": "删除此人",
+    "explain": "这将删除{name}、其姓名以及与他人的关系。此操作无法撤销。",
+    "button": "删除{name}",
+    "confirm": "确定要删除{name}吗？",
+    "confirmButton": "确定删除",
+    "cancel": "取消",
+    "deleting": "正在删除…",
+    "failed": "删除失败，请重试。"
+  },
+  "page": {
+    "edit": "编辑",
+    "manageLinks": "编辑关系",
+    "doneManaging": "完成",
+    "manageHint": "点按亲人即可修改或删除关系。"
+  },
+  "link": {
+    "title": "编辑关系",
+    "parent": "{a}是{b}的父母",
+    "partner": "{a}和{b}是伴侣",
+    "sibling": "{a}和{b}是兄弟姐妹",
+    "friend": "{a}和{b}是朋友",
+    "subtypeLabel": "类型",
+    "save": "保存",
+    "saving": "正在保存…",
+    "removeTitle": "删除此关系",
+    "removeExplain": "两人都会保留在家谱中，只删除他们之间的关系。",
+    "remove": "删除关系",
+    "confirm": "要删除此关系吗？",
+    "confirmButton": "确定删除",
+    "cancel": "取消",
+    "removing": "正在删除…",
+    "notFound": "找不到此关系，可能已被删除。",
+    "failed": "保存失败，请重试。"
+  }
+}

@@ -30,6 +30,7 @@
   },
   "nameTypes": {
     "birth": "出生姓名",
+    "aka": "又名",
     "married": "婚后姓名",
     "nickname": "昵称",
     "religious": "宗教名",
@@ -49,6 +50,10 @@
     "peopleCount": "{count, plural, other {# 人}}",
     "you": "你",
     "loadError": "无法加载你的家谱。",
-    "retry": "重试"
+    "retry": "重试",
+    "aka": "又名 {names}",
+    "list": "列表",
+    "cards": "卡片",
+    "viewLabel": "显示方式"
   }
 }

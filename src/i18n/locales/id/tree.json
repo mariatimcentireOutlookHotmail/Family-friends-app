@@ -30,6 +30,7 @@
   },
   "nameTypes": {
     "birth": "Nama lahir",
+    "aka": "Juga dikenal sebagai",
     "married": "Nama setelah menikah",
     "nickname": "Nama panggilan",
     "religious": "Nama baptis/agama",
@@ -49,6 +50,10 @@
     "peopleCount": "{count, plural, other {# orang}}",
     "you": "Anda",
     "loadError": "Gagal memuat pohon keluarga Anda.",
-    "retry": "Coba lagi"
+    "retry": "Coba lagi",
+    "aka": "alias {names}",
+    "list": "Daftar",
+    "cards": "Kartu",
+    "viewLabel": "Tampilkan sebagai"
   }
 }

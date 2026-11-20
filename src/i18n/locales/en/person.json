@@ -1,0 +1,71 @@
+{
+  "page": {
+    "title": "Person",
+    "alsoKnownAs": "Also known as",
+    "deceased": "Deceased",
+    "noRelatives": "No relatives added yet.",
+    "addRelative": "Add a relative",
+    "viewOnly": "You can view this tree but not change it.",
+    "notFound": "This person couldn't be found, or you don't have access.",
+    "loadError": "Couldn't load this person.",
+    "retry": "Try again",
+    "you": "You",
+    "relationToYou": "Your relation: {relation}"
+  },
+  "sections": {
+    "parents": "Parents",
+    "partners": "Partners",
+    "children": "Children",
+    "siblings": "Siblings",
+    "friends": "Friends"
+  },
+  "relation": {
+    "parent": "Parent",
+    "child": "Child",
+    "partner": "Partner",
+    "sibling": "Sibling",
+    "friend": "Friend"
+  },
+  "subtypes": {
+    "biological": "Biological",
+    "adoptive": "Adoptive",
+    "step": "Step",
+    "foster": "Foster",
+    "married": "Married",
+    "unmarried": "Not married",
+    "divorced": "Divorced",
+    "widowed": "Widowed",
+    "full": "Full",
+    "half": "Half"
+  },
+  "certainty": {
+    "label": "How sure are you?",
+    "confirmed": "Sure",
+    "probable": "Probably",
+    "uncertain": "Not sure"
+  },
+  "living": {
+    "label": "Living or deceased?",
+    "living": "Living",
+    "deceased": "Deceased",
+    "unknown": "Don't know"
+  },
+  "add": {
+    "title": "Add a relative",
+    "heading": "Add a relative of {name}",
+    "relationLabel": "How are they related to {name}?",
+    "subtypeLabel": "Type",
+    "theirName": "Their name",
+    "alsoChildOf": "Also the child of {name}",
+    "submit": "Add",
+    "submitting": "Adding…",
+    "errors": {
+      "nameRequired": "Enter a given name or a family name.",
+      "loop": "That would make someone their own ancestor. Please check the relationship.",
+      "tooManyParents": "This person already has two biological parents.",
+      "duplicate": "These two people are already linked this way.",
+      "notAllowed": "You can view this tree but not change it.",
+      "failed": "Couldn't add this person. Please try again."
+    }
+  }
+}

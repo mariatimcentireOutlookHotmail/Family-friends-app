@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { ScrollView, Text, View } from "react-native";
 
@@ -5,6 +6,7 @@ import { AccountCard } from "@/components/AccountCard";
 import { ConnectionStatus } from "@/components/ConnectionStatus";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { MyTrees } from "@/components/MyTrees";
+import { Button } from "@/components/ui/Button";
 
 export default function HomeScreen() {
   const { t } = useTranslation();
@@ -31,6 +33,12 @@ export default function HomeScreen() {
         <LanguageSwitcher />
 
         <ConnectionStatus />
+
+        <Button
+          variant="link"
+          label={t("note.link", { ns: "privacy" })}
+          onPress={() => router.push("/about-privacy")}
+        />
       </View>
     </ScrollView>
   );

@@ -76,6 +76,12 @@ export default function SignInScreen() {
           <View className="mt-4">
             <LanguageSwitcher />
           </View>
+
+          <Button
+            variant="link"
+            label={t("note.link", { ns: "privacy" })}
+            onPress={() => router.push("/about-privacy")}
+          />
         </View>
       </ScrollView>
     </KeyboardAvoidingView>

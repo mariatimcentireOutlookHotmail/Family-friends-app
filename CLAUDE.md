@@ -104,6 +104,19 @@ npx expo start -c         # clear Metro cache (after changing tailwind or babel 
   can have several names. Display order follows the name's own culture.
   Use `src/lib/names.ts` (detectScript, formatFullName) to build `full_display`;
   don't format names by hand in screens.
+- Extra names default to type `aka` ("also known as"), e.g. a Chinese person's
+  English name. Show them with `akaNames()` from `src/lib/trees.ts`.
+- Relationships: `parent` is directed (person_a is the parent of person_b);
+  `partner`, `sibling` and `friend` are stored once with person_a < person_b.
+  "Child" is never stored; read it from the parent link. Group a person's links
+  with `groupRelatives()` in `src/lib/relatives.ts`. The database refuses
+  loops (being your own ancestor) and more than two biological parents.
+- Adding a person related to someone goes through `add_relative` (runs with
+  the caller's rights, so normal privacy rules apply).
+- Editing a person's names/sex/living status goes through `save_person`
+  (replaces the whole name list at once). Who may edit, delete or change links
+  is decided by `permissionsFor()` in `src/lib/people.ts`, mirroring the
+  database rules; the database still has the final say.
 - Creating a tree with yourself in it goes through the database function
   `create_tree_with_me` (the only way a person can start out claimed).
 - **Never store relationship labels** ("uncle"). Compute the relationship path,
@@ -112,6 +125,13 @@ npx expo start -c         # clear Metro cache (after changing tailwind or babel 
   back to a descriptive phrase when birth order is unknown.
 - Genealogy dates are partial: separate year/month/day columns plus a qualifier
   (about, before, after), matching GEDCOM. Gregorian calendar only in v1.
+- Birth/death dates: `events` holds type, year and qualifier (visible to the
+  whole tree); `event_dates` holds month and day, visible only to the person,
+  their immediate family (parents, children, partners, siblings incl. via a
+  shared parent) and, once deceased, the whole tree. Dates are written only via
+  `private.set_life_date` (called by create_tree_with_me, add_relative and
+  save_person); sending just a year keeps a day/month the editor can't see.
+  Use `src/lib/dates.ts` to check, format (Intl) and compute ages.
 
 ### Data model and privacy
 
@@ -124,6 +144,18 @@ npx expo start -c         # clear Metro cache (after changing tailwind or babel 
   level hides what it should. A privacy leak is the worst possible bug.
 - Living people are private by default: contact details and addresses Private;
   birth dates Immediate family; names and photos Extended tree.
+- Per-field privacy (`field_visibility`): fields birth_date, death_date,
+  contact; levels private / immediate / tree. Check visibility only with
+  `private.can_see_field()`; change levels only via `set_privacy` (the
+  claimant, or tree owners for an unclaimed profile). Years stay visible to
+  the tree (needed for kinship), except for protected minors.
+- Minors: age limit per person's `country` (`private.minor_age_limits`;
+  18 if unknown). Others see a placeholder ("Private family member"): no
+  names, dates or contacts; only self, immediate family and whoever added
+  them see the child. The app reads `my_access` (a computed field on persons)
+  to know what to show; never decide visibility in the app alone.
+- The privacy note screen (`about-privacy`) is public on purpose; update its
+  text whenever what we store or who sees it changes.
 - Once a profile is claimed, only its owner edits core fields; others suggest changes.
 - Minors (age threshold per country's law): visible to immediate family only,
   cannot be invited directly.
@@ -143,6 +175,27 @@ npx expo start -c         # clear Metro cache (after changing tailwind or babel 
   never raw error text.
 - The user's language is stored on their profile (`profiles.locale`) and synced
   on sign-in; null means "follow the device".
+
+- After deleting something, navigate away *before* refreshing data (don't
+  await the refresh in the mutation's onSuccess): otherwise the screen re-renders
+  as "not found", unmounts, and TanStack Query drops the navigation callback.
+- Destructive actions use `ConfirmAction` (an in-page "Are you sure?"), not
+  system alert dialogs, which don't work the same on the web.
+
+### Kinship words
+
+- Code: `src/lib/kinship/` — `path.ts` finds the shortest path from the
+  viewer's own profile (blood links preferred over marriage), turning
+  "parent then child" into a sibling step; `en.ts`, `id.ts`, `zhHans.ts` turn a
+  path into a word plus a plain description. Shown via `useKinship()`.
+- Never store labels; never guess. If elder/younger or the family side is
+  unknown, return null for the term and show the description.
+- Indonesian: standard terms (Paman/Bibi; no elder/younger split for uncles
+  and aunts). Regional Javanese terms (Pakde/Bude) may come later.
+- Chinese: formal terms (父亲, 母亲, 祖父, 外祖母, 伯父, 叔父, 舅父, 姑母, 姨母, …).
+- Elder/younger comes from birth years, then birth order.
+- Every new term needs a test in `src/lib/kinship/kinship.test.ts`, and a
+  native-speaker check before release.
 
 ### Database changes
 

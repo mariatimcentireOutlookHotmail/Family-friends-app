@@ -1,0 +1,49 @@
+{
+  "person": {
+    "title": "Ubah data",
+    "heading": "Ubah data {name}",
+    "save": "Simpan perubahan",
+    "saving": "Menyimpan…",
+    "claimedNote": "{name} sudah mengklaim profil ini, jadi hanya dia yang dapat mengubah nama dan datanya.",
+    "errors": {
+      "nameRequired": "Masukkan nama depan atau nama keluarga.",
+      "notAllowed": "Anda tidak dapat mengubah data orang ini. Setelah seseorang mengklaim profilnya, hanya dia yang dapat mengubahnya.",
+      "failed": "Gagal menyimpan. Silakan coba lagi."
+    }
+  },
+  "delete": {
+    "title": "Hapus orang ini",
+    "explain": "Ini akan menghapus {name}, nama-namanya, dan hubungannya dengan orang lain. Tindakan ini tidak dapat dibatalkan.",
+    "button": "Hapus {name}",
+    "confirm": "Yakin ingin menghapus {name}?",
+    "confirmButton": "Ya, hapus",
+    "cancel": "Batal",
+    "deleting": "Menghapus…",
+    "failed": "Gagal menghapus orang ini. Silakan coba lagi."
+  },
+  "page": {
+    "edit": "Ubah",
+    "manageLinks": "Ubah hubungan",
+    "doneManaging": "Selesai",
+    "manageHint": "Ketuk kerabat untuk mengubah atau menghapus hubungannya."
+  },
+  "link": {
+    "title": "Ubah hubungan",
+    "parent": "{a} adalah orang tua dari {b}",
+    "partner": "{a} dan {b} adalah pasangan",
+    "sibling": "{a} dan {b} bersaudara",
+    "friend": "{a} dan {b} berteman",
+    "subtypeLabel": "Jenis",
+    "save": "Simpan",
+    "saving": "Menyimpan…",
+    "removeTitle": "Hapus hubungan ini",
+    "removeExplain": "Kedua orang tetap ada di pohon; hanya hubungan di antara mereka yang dihapus.",
+    "remove": "Hapus hubungan",
+    "confirm": "Hapus hubungan ini?",
+    "confirmButton": "Ya, hapus",
+    "cancel": "Batal",
+    "removing": "Menghapus…",
+    "notFound": "Hubungan ini tidak ditemukan. Mungkin sudah dihapus.",
+    "failed": "Gagal menyimpan perubahan. Silakan coba lagi."
+  }
+}
