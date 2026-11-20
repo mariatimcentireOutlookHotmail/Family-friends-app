@@ -1,0 +1,10 @@
+{
+  "appName": "Family & Friends",
+  "home": {
+    "title": "Home",
+    "welcome": "Welcome!",
+    "tagline": "Stay connected with the people who matter most.",
+    "relativeCount": "{count, plural, one {You have # relative} other {You have # relatives}}",
+    "today": "Today is {date}"
+  }
+}

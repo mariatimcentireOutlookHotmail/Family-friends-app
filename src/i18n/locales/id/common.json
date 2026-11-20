@@ -1,0 +1,10 @@
+{
+  "appName": "Keluarga & Teman",
+  "home": {
+    "title": "Beranda",
+    "welcome": "Selamat datang!",
+    "tagline": "Tetap terhubung dengan orang-orang terdekat Anda.",
+    "relativeCount": "{count, plural, other {Anda memiliki # kerabat}}",
+    "today": "Hari ini {date}"
+  }
+}

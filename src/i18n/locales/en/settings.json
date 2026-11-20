@@ -1,0 +1,7 @@
+{
+  "language": {
+    "label": "Language",
+    "hint": "Choose the language for the app.",
+    "useDevice": "Use device language"
+  }
+}

@@ -1,0 +1,72 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# ---------------------------------------------------------------
+# Secrets: never commit these
+# ---------------------------------------------------------------
+# Environment files (keep only the placeholder .env.example)
+.env
+.env.*
+!.env.example
+
+# Supabase local state and keys
+supabase/.temp/
+supabase/.branches/
+supabase/.env
+supabase/functions/.env
+supabase/functions/**/.env
+
+# Signing keys, certificates and provisioning profiles
+*.jks
+*.keystore
+*.p8
+*.p12
+*.key
+*.pem
+*.cer
+*.mobileprovision
+
+# Service accounts and API credentials
+google-services.json
+GoogleService-Info.plist
+service-account*.json
+*-service-account.json
+credentials.json
+secrets.json
+
+# Hosting CLI state (can contain tokens)
+.vercel/
+.netlify/
+
+# Personal Claude Code settings (shared .claude/settings.json is committed)
+.claude/settings.local.json
+
+# ---------------------------------------------------------------
+# Dependencies and build output
+# ---------------------------------------------------------------
+node_modules/
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+*.tsbuildinfo
+coverage/
+
+# Generated native folders (Continuous Native Generation)
+/ios
+/android
+.kotlin/
+*.orig.*
+
+# Metro
+.metro-health-check*
+
+# Logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+*.log
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
