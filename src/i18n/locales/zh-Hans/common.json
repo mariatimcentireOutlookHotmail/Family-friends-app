@@ -3,8 +3,6 @@
   "home": {
     "title": "首页",
     "welcome": "欢迎！",
-    "tagline": "与最重要的人保持联系。",
-    "relativeCount": "{count, plural, other {你有 # 位亲人}}",
-    "today": "今天是{date}"
+    "tagline": "与最重要的人保持联系。"
   }
 }

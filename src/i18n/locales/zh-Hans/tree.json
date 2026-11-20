@@ -1,0 +1,54 @@
+{
+  "create": {
+    "title": "创建家谱",
+    "heading": "创建你的家谱",
+    "intro": "先给家谱起个名字，再把自己添加为第一个人。",
+    "treeNameLabel": "家谱名称",
+    "treeNamePlaceholder": "例如：陈氏家族",
+    "treeLanguageLabel": "家谱语言",
+    "treeLanguageHint": "以后用于邀请消息等。",
+    "aboutYou": "关于你",
+    "submit": "创建家谱",
+    "submitting": "正在创建…",
+    "errors": {
+      "treeNameRequired": "请给家谱起个名字。",
+      "nameRequired": "请输入名或姓。",
+      "failed": "无法创建家谱，请重试。"
+    }
+  },
+  "names": {
+    "mainName": "你的姓名",
+    "otherName": "其他姓名",
+    "hint": "你可以用另一种文字添加同一个名字，例如汉字和拉丁字母。",
+    "givenLabel": "名",
+    "familyLabel": "姓（可选）",
+    "familyFirst": "姓在前",
+    "shownAs": "显示为：{name}",
+    "add": "添加其他姓名",
+    "remove": "删除此姓名",
+    "typeLabel": "姓名类型"
+  },
+  "nameTypes": {
+    "birth": "出生姓名",
+    "married": "婚后姓名",
+    "nickname": "昵称",
+    "religious": "宗教名",
+    "other": "其他"
+  },
+  "sex": {
+    "label": "性别（可选）",
+    "female": "女",
+    "male": "男",
+    "other": "其他",
+    "unknown": "不愿透露"
+  },
+  "home": {
+    "noTreeTitle": "开始建立你的家谱",
+    "noTreeBody": "为你的家族创建一个家谱，并把自己添加为第一个人。之后就可以添加亲人了。",
+    "createButton": "创建家谱",
+    "peopleCount": "{count, plural, other {# 人}}",
+    "you": "你",
+    "loadError": "无法加载你的家谱。",
+    "retry": "重试"
+  }
+}

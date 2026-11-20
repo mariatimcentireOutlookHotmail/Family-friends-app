@@ -1,0 +1,54 @@
+{
+  "create": {
+    "title": "Create tree",
+    "heading": "Create your family tree",
+    "intro": "Give your tree a name, then add yourself as the first person.",
+    "treeNameLabel": "Tree name",
+    "treeNamePlaceholder": "e.g. Tan family",
+    "treeLanguageLabel": "Tree language",
+    "treeLanguageHint": "Used later for things like invitation messages.",
+    "aboutYou": "About you",
+    "submit": "Create tree",
+    "submitting": "Creating…",
+    "errors": {
+      "treeNameRequired": "Give your tree a name.",
+      "nameRequired": "Enter a given name or a family name.",
+      "failed": "Couldn't create the tree. Please try again."
+    }
+  },
+  "names": {
+    "mainName": "Your name",
+    "otherName": "Another name",
+    "hint": "You can add the same name in another script, e.g. Chinese characters and Latin letters.",
+    "givenLabel": "Given name(s)",
+    "familyLabel": "Family name (optional)",
+    "familyFirst": "Family name first",
+    "shownAs": "Shown as: {name}",
+    "add": "Add another name",
+    "remove": "Remove this name",
+    "typeLabel": "Kind of name"
+  },
+  "nameTypes": {
+    "birth": "Birth name",
+    "married": "Married name",
+    "nickname": "Nickname",
+    "religious": "Religious name",
+    "other": "Other"
+  },
+  "sex": {
+    "label": "Sex (optional)",
+    "female": "Female",
+    "male": "Male",
+    "other": "Other",
+    "unknown": "Prefer not to say"
+  },
+  "home": {
+    "noTreeTitle": "Start your family tree",
+    "noTreeBody": "Create a tree for your family and add yourself as the first person. Next, you'll be able to add relatives.",
+    "createButton": "Create your family tree",
+    "peopleCount": "{count, plural, one {# person} other {# people}}",
+    "you": "You",
+    "loadError": "Couldn't load your family tree.",
+    "retry": "Try again"
+  }
+}

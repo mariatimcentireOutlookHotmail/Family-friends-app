@@ -51,6 +51,7 @@ function RootNavigator() {
     <Stack>
       <Stack.Protected guard={signedIn} redirectTo="/sign-in">
         <Stack.Screen name="index" options={{ title: t("home.title") }} />
+        <Stack.Screen name="create-tree" options={{ title: t("create.title", { ns: "tree" }) }} />
       </Stack.Protected>
 
       <Stack.Protected guard={!signedIn} redirectTo="/">

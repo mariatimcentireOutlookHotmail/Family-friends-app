@@ -1,0 +1,54 @@
+{
+  "create": {
+    "title": "Buat pohon",
+    "heading": "Buat pohon keluarga Anda",
+    "intro": "Beri nama pohon Anda, lalu tambahkan diri Anda sebagai orang pertama.",
+    "treeNameLabel": "Nama pohon",
+    "treeNamePlaceholder": "mis. Keluarga Tan",
+    "treeLanguageLabel": "Bahasa pohon",
+    "treeLanguageHint": "Nanti digunakan untuk hal seperti pesan undangan.",
+    "aboutYou": "Tentang Anda",
+    "submit": "Buat pohon",
+    "submitting": "Membuat…",
+    "errors": {
+      "treeNameRequired": "Beri nama pohon Anda.",
+      "nameRequired": "Masukkan nama depan atau nama keluarga.",
+      "failed": "Gagal membuat pohon. Silakan coba lagi."
+    }
+  },
+  "names": {
+    "mainName": "Nama Anda",
+    "otherName": "Nama lain",
+    "hint": "Anda bisa menambahkan nama yang sama dalam aksara lain, mis. aksara Tionghoa dan huruf Latin.",
+    "givenLabel": "Nama depan",
+    "familyLabel": "Nama keluarga (opsional)",
+    "familyFirst": "Nama keluarga di depan",
+    "shownAs": "Ditampilkan sebagai: {name}",
+    "add": "Tambah nama lain",
+    "remove": "Hapus nama ini",
+    "typeLabel": "Jenis nama"
+  },
+  "nameTypes": {
+    "birth": "Nama lahir",
+    "married": "Nama setelah menikah",
+    "nickname": "Nama panggilan",
+    "religious": "Nama baptis/agama",
+    "other": "Lainnya"
+  },
+  "sex": {
+    "label": "Jenis kelamin (opsional)",
+    "female": "Perempuan",
+    "male": "Laki-laki",
+    "other": "Lainnya",
+    "unknown": "Tidak ingin menyebutkan"
+  },
+  "home": {
+    "noTreeTitle": "Mulai pohon keluarga Anda",
+    "noTreeBody": "Buat pohon untuk keluarga Anda dan tambahkan diri Anda sebagai orang pertama. Setelah itu, Anda bisa menambahkan kerabat.",
+    "createButton": "Buat pohon keluarga",
+    "peopleCount": "{count, plural, other {# orang}}",
+    "you": "Anda",
+    "loadError": "Gagal memuat pohon keluarga Anda.",
+    "retry": "Coba lagi"
+  }
+}

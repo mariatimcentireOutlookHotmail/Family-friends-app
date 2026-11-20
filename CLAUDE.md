@@ -102,6 +102,10 @@ npx expo start -c         # clear Metro cache (after changing tailwind or babel 
 - Names are stored as parts in `person_names` (given, family, patronymic, prefix,
   suffix, full display, script, type, lang). Never assume "first + last". A person
   can have several names. Display order follows the name's own culture.
+  Use `src/lib/names.ts` (detectScript, formatFullName) to build `full_display`;
+  don't format names by hand in screens.
+- Creating a tree with yourself in it goes through the database function
+  `create_tree_with_me` (the only way a person can start out claimed).
 - **Never store relationship labels** ("uncle"). Compute the relationship path,
   then turn it into a word with a per-language kinship function. Chinese and
   Indonesian depend on side (paternal/maternal) and/or elder vs younger; fall
