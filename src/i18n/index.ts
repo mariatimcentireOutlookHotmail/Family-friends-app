@@ -79,14 +79,14 @@ export async function getSavedLanguage(): Promise<Language | null> {
 
 /** Switch language. Pass null to go back to following the device language. */
 export async function setLanguage(lng: Language | null): Promise<void> {
-  const next = lng ?? getDeviceLanguage();
-  await i18n.changeLanguage(next);
+  // Save first, so anything listening for the change reads the new choice.
   try {
     if (lng) await AsyncStorage.setItem(STORAGE_KEY, lng);
     else await AsyncStorage.removeItem(STORAGE_KEY);
   } catch {
     // Not fatal: the language still changes for this session.
   }
+  await i18n.changeLanguage(lng ?? getDeviceLanguage());
 }
 
 export default i18n;

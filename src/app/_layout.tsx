@@ -8,28 +8,55 @@ import { useTranslation } from "react-i18next";
 
 // Importing @/i18n also sets up i18next before any screen renders.
 import { loadSavedLanguage } from "@/i18n";
+import { AuthProvider, useAuth } from "@/lib/auth";
 
 // One cache for all server data (TanStack Query).
 const queryClient = new QueryClient();
 
 export default function RootLayout() {
-  const { t } = useTranslation();
-  const [ready, setReady] = useState(false);
+  const [languageReady, setLanguageReady] = useState(false);
 
   useEffect(() => {
     // Apply the saved language before the first screen renders, so the UI
     // doesn't flash in the device language first.
-    loadSavedLanguage().finally(() => setReady(true));
+    loadSavedLanguage().finally(() => setLanguageReady(true));
   }, []);
 
-  if (!ready) return null;
+  if (!languageReady) return null;
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Stack>
-        <Stack.Screen name="index" options={{ title: t("home.title") }} />
-      </Stack>
+      <AuthProvider>
+        <RootNavigator />
+      </AuthProvider>
       <StatusBar style="auto" />
     </QueryClientProvider>
+  );
+}
+
+/**
+ * Signed-in people see the app; signed-out people see only the sign-in
+ * screens. Expo Router redirects automatically when this changes.
+ */
+function RootNavigator() {
+  const { t } = useTranslation();
+  const { session, isLoading } = useAuth();
+
+  // Wait until we know whether someone is signed in (the splash screen stays up).
+  if (isLoading) return null;
+
+  const signedIn = Boolean(session);
+
+  return (
+    <Stack>
+      <Stack.Protected guard={signedIn} redirectTo="/sign-in">
+        <Stack.Screen name="index" options={{ title: t("home.title") }} />
+      </Stack.Protected>
+
+      <Stack.Protected guard={!signedIn} redirectTo="/">
+        <Stack.Screen name="sign-in" options={{ title: t("signIn.title", { ns: "auth" }) }} />
+        <Stack.Screen name="verify" options={{ title: t("verify.title", { ns: "auth" }) }} />
+      </Stack.Protected>
+    </Stack>
   );
 }

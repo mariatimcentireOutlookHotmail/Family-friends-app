@@ -2,27 +2,36 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Pressable, Text, View } from "react-native";
 
-import { getSavedLanguage, setLanguage } from "@/i18n";
+import i18n, { getSavedLanguage, setLanguage } from "@/i18n";
 import {
   LANGUAGE_AUTONYMS,
   SUPPORTED_LANGUAGES,
   type Language,
 } from "@/i18n/languages";
+import { useAuth } from "@/lib/auth";
+import { saveLanguageToProfile } from "@/lib/profile";
 
 /** null = follow the device language. */
 type Choice = Language | null;
 
 export function LanguageSwitcher() {
   const { t } = useTranslation("settings");
+  const { session } = useAuth();
   const [choice, setChoice] = useState<Choice>(null);
 
   useEffect(() => {
-    getSavedLanguage().then(setChoice);
+    const refresh = () => void getSavedLanguage().then(setChoice);
+    refresh();
+    // The language can also change elsewhere, e.g. from the account after sign-in.
+    i18n.on("languageChanged", refresh);
+    return () => i18n.off("languageChanged", refresh);
   }, []);
 
-  const select = (next: Choice) => {
+  const select = async (next: Choice) => {
     setChoice(next);
-    void setLanguage(next);
+    await setLanguage(next);
+    // Signed in: remember the choice on the account too, for other devices.
+    if (session) await saveLanguageToProfile(session.user.id, next);
   };
 
   return (
@@ -37,14 +46,14 @@ export function LanguageSwitcher() {
       <Option
         label={t("language.useDevice")}
         selected={choice === null}
-        onPress={() => select(null)}
+        onPress={() => void select(null)}
       />
       {SUPPORTED_LANGUAGES.map((lng) => (
         <Option
           key={lng}
           label={LANGUAGE_AUTONYMS[lng]}
           selected={choice === lng}
-          onPress={() => select(lng)}
+          onPress={() => void select(lng)}
         />
       ))}
     </View>

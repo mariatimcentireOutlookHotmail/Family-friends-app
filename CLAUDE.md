@@ -43,8 +43,8 @@ instead of relying on memory.
 ```
 src/
   app/            Expo Router routes only (every file is a screen; _layout.tsx = navigator)
-  components/     Shared UI components
-  lib/            Non-UI code: Supabase client, data hooks
+  components/     Shared UI components (ui/ = basic building blocks: Button, TextField)
+  lib/            Non-UI code: Supabase client, auth session (useAuth), profile, data hooks
 supabase/
   config.toml     Supabase CLI settings
   migrations/     Database changes as numbered SQL files (the source of truth for the schema)
@@ -126,6 +126,19 @@ npx expo start -c         # clear Metro cache (after changing tailwind or babel 
 - Invite tokens: single-use, stored hashed, expire after 14 days, revocable.
 - Support account deletion (anonymized placeholder if others depend on the node)
   and data export (JSON and GEDCOM).
+
+### Sign-in and screens
+
+- Sign-in is email + 6-digit code (Supabase OTP); no passwords for now.
+- Which screens signed-in vs signed-out people can open is decided only in
+  `src/app/_layout.tsx` with `Stack.Protected`. New app screens go inside the
+  signed-in group.
+- Get the session with `useAuth()` from `@/lib/auth`; don't call
+  `supabase.auth.getSession()` in screens.
+- Show Supabase errors through translated messages (see `src/lib/authErrors.ts`),
+  never raw error text.
+- The user's language is stored on their profile (`profiles.locale`) and synced
+  on sign-in; null means "follow the device".
 
 ### Database changes
 
