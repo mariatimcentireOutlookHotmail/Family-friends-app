@@ -3,21 +3,14 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Pressable, Text, View } from "react-native";
 
+import { Avatar } from "@/components/Avatar";
 import { PersonRow } from "@/components/PersonRow";
+import { Button } from "@/components/ui/Button";
 import { ChoiceChips } from "@/components/ui/ChoiceChips";
 import { useAuth } from "@/lib/auth";
-import { akaNames, primaryName, type Tree, type TreePerson } from "@/lib/trees";
+import { useProfilePhotos } from "@/lib/photos";
+import { akaNames, everydayName, knownAs, lifeYears, primaryName, type Tree, type TreePerson } from "@/lib/trees";
 import { useKinship } from "@/lib/useKinship";
-
-/** "1955" or "1930–2001" from birth/death years, if known. */
-function years(person: TreePerson): string | null {
-  const birth = person.events?.find((e) => e.type === "birth")?.year ?? null;
-  const death = person.events?.find((e) => e.type === "death")?.year ?? null;
-  if (birth && death) return `${birth}–${death}`;
-  if (birth) return `${birth}`;
-  if (death) return `–${death}`;
-  return null;
-}
 
 type ViewMode = "list" | "cards";
 
@@ -27,17 +20,21 @@ export function TreeCard({ tree }: { tree: Tree }) {
   const { session } = useAuth();
   const people = tree.persons ?? [];
   const kinship = useKinship(tree);
+  const photos = useProfilePhotos(tree.id);
   const [view, setView] = useState<ViewMode>("list");
 
   const describe = (person: TreePerson) => {
     // A child the viewer may not see has no names: show a placeholder.
-    const name = primaryName(person) ?? t("minor.name", { ns: "privacy" });
+    const name = everydayName(person) ?? t("minor.name", { ns: "privacy" });
+    // Shown under a nickname or "also known as" name, so people can tell who it is.
+    const fullName = knownAs(person) ? primaryName(person) : null;
     const label = kinship.get(person.id);
     // The kinship word if there is one ("Uncle"), otherwise the description.
     const relation = label ? (label.term ?? label.description) : null;
-    const aka = akaNames(person);
+    // Other names, leaving out the one already shown as the name.
+    const aka = akaNames(person).filter((n) => n !== name);
     const isMe = person.claimed_by_user_id === session?.user.id;
-    return { name, relation, aka, isMe, years: years(person) };
+    return { name, fullName, relation, aka, isMe, years: lifeYears(person) };
   };
   const open = (id: string) => router.push({ pathname: "/person/[id]", params: { id } });
 
@@ -50,6 +47,15 @@ export function TreeCard({ tree }: { tree: Tree }) {
             {t("home.peopleCount", { count: people.length })}
           </Text>
         </View>
+        <Button
+          label={t("open", { ns: "treeView" })}
+          onPress={() => router.push({ pathname: "/tree/[id]", params: { id: tree.id } })}
+        />
+        <Button
+          variant="link"
+          label={t("recent", { ns: "history" })}
+          onPress={() => router.push({ pathname: "/history/[treeId]", params: { treeId: tree.id } })}
+        />
         <ChoiceChips
           label={t("home.viewLabel")}
           value={view}
@@ -64,7 +70,7 @@ export function TreeCard({ tree }: { tree: Tree }) {
       {view === "list" ? (
         people.map((person) => {
           const d = describe(person);
-          const subtitle = [d.relation, d.aka.length ? t("home.aka", { names: d.aka.join(", ") }) : null]
+          const subtitle = [d.fullName, d.relation, d.aka.length ? t("home.aka", { names: d.aka.join(", ") }) : null]
             .filter(Boolean)
             .join(" · ");
           return (
@@ -73,6 +79,7 @@ export function TreeCard({ tree }: { tree: Tree }) {
               name={d.name}
               subtitle={subtitle || null}
               badge={d.isMe ? t("home.you") : null}
+              photo={photos.data?.get(person.id)}
               onPress={() => open(person.id)}
             />
           );
@@ -88,14 +95,15 @@ export function TreeCard({ tree }: { tree: Tree }) {
                 accessibilityRole="button"
                 className="w-[48%] items-center gap-1 rounded-xl border border-gray-200 bg-gray-50 p-3 active:opacity-60 dark:border-gray-800 dark:bg-gray-950"
               >
-                <View className="h-14 w-14 items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900">
-                  <Text className="text-xl font-semibold text-indigo-700 dark:text-indigo-200">
-                    {Array.from(d.name)[0] ?? "?"}
-                  </Text>
-                </View>
+                <Avatar name={d.name} photo={photos.data?.get(person.id)} size={56} />
                 <Text numberOfLines={2} className="text-center text-base font-semibold text-gray-900 dark:text-gray-100">
                   {d.name}
                 </Text>
+                {d.fullName ? (
+                  <Text numberOfLines={1} className="text-center text-xs text-gray-600 dark:text-gray-400">
+                    {d.fullName}
+                  </Text>
+                ) : null}
                 {d.aka.length ? (
                   <Text numberOfLines={1} className="text-center text-xs text-gray-600 dark:text-gray-400">
                     {t("home.aka", { names: d.aka.join(", ") })}

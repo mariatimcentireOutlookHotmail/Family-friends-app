@@ -3,10 +3,12 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from "react-native";
 
+import { DevSignIn } from "@/components/DevSignIn";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/Button";
 import { TextField } from "@/components/ui/TextField";
 import { authErrorKey, isValidEmail } from "@/lib/authErrors";
+import { peekPendingJoin } from "@/lib/pendingJoin";
 import { supabase } from "@/lib/supabase";
 
 export default function SignInScreen() {
@@ -48,6 +50,11 @@ export default function SignInScreen() {
               {t("signIn.heading")}
             </Text>
             <Text className="text-base text-gray-700 dark:text-gray-300">{t("signIn.subtitle")}</Text>
+            {peekPendingJoin() ? (
+              <Text className="rounded-lg bg-indigo-50 p-3 text-base text-indigo-900 dark:bg-indigo-950 dark:text-indigo-100">
+                {t("signIn.pendingInvite")}
+              </Text>
+            ) : null}
           </View>
 
           <TextField
@@ -72,6 +79,8 @@ export default function SignInScreen() {
             onPress={sendCode}
             loading={sending}
           />
+
+          <DevSignIn />
 
           <View className="mt-4">
             <LanguageSwitcher />

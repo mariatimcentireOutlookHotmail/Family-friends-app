@@ -1,0 +1,3 @@
+# MyOrbit is private to the families who use it: please don't list it.
+User-agent: *
+Disallow: /

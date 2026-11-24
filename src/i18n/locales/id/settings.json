@@ -11,5 +11,18 @@
     "notConfigured": "Belum diatur: tambahkan URL dan kunci Supabase ke file .env",
     "badKey": "Supabase menolak kunci: periksa kunci di .env",
     "unreachable": "Tidak dapat menjangkau Supabase: periksa koneksi internet dan URL di .env"
+  },
+  "theme": {
+    "label": "Tampilan",
+    "system": "Otomatis",
+    "light": "Terang",
+    "dark": "Gelap"
+  },
+  "palette": {
+    "label": "Warna",
+    "indigo": "Nila",
+    "sky": "Langit",
+    "sage": "Hijau daun",
+    "earth": "Tanah"
   }
 }

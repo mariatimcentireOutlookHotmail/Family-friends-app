@@ -1,0 +1,53 @@
+{
+  "section": {
+    "title": "Invite {name}",
+    "body": "Send {name} a code so they can join MyOrbit and look after their own profile.",
+    "button": "Invite {name}",
+    "pending": "Invite sent {sent}. The code works until {expires}.",
+    "newCode": "Make a new code",
+    "cancel": "Cancel invite",
+    "cancelled": "Invite cancelled."
+  },
+  "screen": {
+    "title": "Invite",
+    "heading": "Invite {name}",
+    "langLabel": "Language of the message",
+    "create": "Create invite code",
+    "creating": "Creating…",
+    "codeLabel": "Invite code",
+    "codeNote": "Share this code with {name} only. It works once and expires in 14 days. It won't be shown again, but you can always make a new one.",
+    "share": "Share",
+    "shareFailed": "Couldn't open sharing on this device. Copy the message below instead.",
+    "messageLabel": "Message",
+    "done": "Done"
+  },
+  "message": "Hi {name}! I've added you to our family tree “{tree}” on MyOrbit. To join, open this link and sign in with your email:\n{link}\n\nOr open the MyOrbit app, tap “Have a code?” and enter: {code}\n\nThe code works once and expires in 14 days.",
+  "join": {
+    "homeButton": "Have a code?",
+    "title": "Join with a code",
+    "body": "Got a code from a relative? Enter it here: an invite to join a tree, or a request to link two family trees.",
+    "codeLabel": "Code",
+    "check": "Check code",
+    "checking": "Checking…",
+    "previewWithInviter": "{inviter} invited you to join “{tree}” as:",
+    "preview": "You're invited to join “{tree}” as:",
+    "claimNote": "When you accept, this profile becomes yours: only you can change its details, and you can add relatives to the tree.",
+    "thisIsMe": "This is me",
+    "joining": "Joining…",
+    "notMe": "That's not me",
+    "notMeNote": "Then don't accept it. Ask the person who sent the code to check which profile it's for."
+  },
+  "errors": {
+    "invalid": "That code doesn't match an invite. Check it and try again.",
+    "used": "This invite has already been used.",
+    "revoked": "This invite was cancelled. Ask for a new code.",
+    "expired": "This invite has expired. Ask for a new code.",
+    "tooManyTries": "Too many wrong codes. Try again in an hour.",
+    "alreadyInTree": "You already have a profile in this family tree.",
+    "notAllowed": "Only owners and editors of the tree can send invites.",
+    "blocked_claimed": "This profile already belongs to someone.",
+    "blocked_deceased": "Deceased people can't be invited.",
+    "blocked_minor": "Children below the age limit can't be invited. They can claim their profile when they're older.",
+    "failed": "Something went wrong. Please try again."
+  }
+}

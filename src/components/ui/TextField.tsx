@@ -1,5 +1,7 @@
 import { Text, TextInput, View, type TextInputProps } from "react-native";
 
+import { usePaletteColors } from "@/lib/theme";
+
 type Props = Omit<TextInputProps, "className"> & {
   label: string;
   error?: string | null;
@@ -8,12 +10,13 @@ type Props = Omit<TextInputProps, "className"> & {
 };
 
 export function TextField({ label, error, inputClassName = "", ...input }: Props) {
+  const colors = usePaletteColors();
   return (
     <View className="gap-1.5">
       <Text className="text-sm font-medium text-gray-900 dark:text-gray-100">{label}</Text>
       <TextInput
         accessibilityLabel={label}
-        placeholderTextColor="#9ca3af"
+        placeholderTextColor={colors.gray["400"]}
         className={`min-h-12 rounded-xl border bg-white px-4 text-base text-gray-900 dark:bg-gray-900 dark:text-gray-100 ${
           error ? "border-red-500" : "border-gray-300 dark:border-gray-700"
         } ${inputClassName}`}

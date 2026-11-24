@@ -13,7 +13,7 @@
   },
   "delete": {
     "title": "Delete this person",
-    "explain": "This removes {name}, their names and their links to others. It can't be undone.",
+    "explain": "This removes {name}, their names, dates and links to others. If it was a mistake, a tree owner can bring them back from History (Recent changes).",
     "button": "Delete {name}",
     "confirm": "Are you sure you want to delete {name}?",
     "confirmButton": "Yes, delete",

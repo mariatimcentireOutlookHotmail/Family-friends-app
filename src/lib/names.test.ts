@@ -1,6 +1,16 @@
 import { describe, expect, it } from "vitest";
 
-import { detectScript, formatFullName, guessNameLang, isFamilyFirstByDefault, splitSavedName } from "./names";
+import {
+  detectScript,
+  everydayName,
+  formatFullName,
+  guessNameLang,
+  isFamilyFirstByDefault,
+  knownAs,
+  nickname,
+  splitSavedName,
+} from "./names";
+import type { NameType } from "./trees";
 
 describe("detectScript", () => {
   it("recognises Chinese characters", () => {
@@ -75,5 +85,40 @@ describe("splitSavedName (for editing)", () => {
         full === "陈美玲" ? { given: "美玲", family: "陈" } : { given: "Mei Ling", family: "Tan" };
       expect(formatFullName(splitSavedName({ ...saved, full_display: full }))).toBe(full);
     }
+  });
+});
+
+describe("everyday names", () => {
+  const person = (names: { full_display: string; is_primary: boolean; type: NameType }[]) => ({
+    person_names: names.map((n) => ({ ...n, script: null })),
+  });
+
+  it("prefer the nickname, then the main name", () => {
+    expect(
+      everydayName(
+        person([
+          { full_display: "Tan Mei Ling", is_primary: true, type: "birth" },
+          { full_display: "Meimei", is_primary: false, type: "nickname" },
+        ]),
+      ),
+    ).toBe("Meimei");
+    expect(everydayName(person([{ full_display: "Tan Mei Ling", is_primary: true, type: "birth" }]))).toBe("Tan Mei Ling");
+    expect(nickname(person([{ full_display: "Mei", is_primary: false, type: "aka" }]))).toBeNull();
+  });
+
+  it("use an 'also known as' name when there is no nickname", () => {
+    const aka = person([
+      { full_display: "洪德义", is_primary: true, type: "birth" },
+      { full_display: "David", is_primary: false, type: "aka" },
+    ]);
+    expect(everydayName(aka)).toBe("David");
+    expect(knownAs(aka)).toBe("David");
+    const both = person([
+      { full_display: "洪德梅", is_primary: true, type: "birth" },
+      { full_display: "Mary", is_primary: false, type: "aka" },
+      { full_display: "Mui", is_primary: false, type: "nickname" },
+    ]);
+    expect(everydayName(both)).toBe("Mui");
+    expect(knownAs(person([{ full_display: "Tan", is_primary: true, type: "birth" }]))).toBeNull();
   });
 });

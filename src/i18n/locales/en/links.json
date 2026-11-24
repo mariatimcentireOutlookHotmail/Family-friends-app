@@ -1,0 +1,65 @@
+{
+  "section": {
+    "title": "Linked family trees",
+    "alsoIn": "Also in “{tree}”",
+    "none": "{name} isn't linked to another family's tree.",
+    "explain": "If {name} is also in another family's tree (for example a husband's or wife's family), you can link the two. Each family keeps its own tree; both see the other's version of {name} and their close family.",
+    "button": "Link to another family's tree",
+    "pending": "Link code sent {sent}. It works until {expires}.",
+    "newCode": "Make a new code",
+    "cancel": "Cancel code",
+    "unlink": "Unlink",
+    "unlinkTitle": "Unlink these trees?",
+    "unlinkExplain": "Both families keep their own trees; they just stop seeing each other's version of {name}.",
+    "unlinkConfirm": "Yes, unlink",
+    "unlinking": "Unlinking…",
+    "namesOnly": "Names and years only. Contact details and children's details are never shared.",
+    "keep": "Keep linked"
+  },
+  "relation": {
+    "father": "Father",
+    "mother": "Mother",
+    "parent": "Parent",
+    "son": "Son",
+    "daughter": "Daughter",
+    "child": "Child",
+    "husband": "Husband",
+    "wife": "Wife",
+    "partner": "Partner",
+    "brother": "Brother",
+    "sister": "Sister",
+    "sibling": "Sibling"
+  },
+  "screen": {
+    "title": "Link trees",
+    "heading": "Link {name} with another family's tree",
+    "intro": "Send this code to an owner of the other family's tree. They enter it under “Have a code?” and choose {name} in their tree.",
+    "langLabel": "Language of the message",
+    "create": "Create link code",
+    "creating": "Creating…",
+    "codeLabel": "Link code",
+    "codeNote": "It works once and expires in 14 days. It won't be shown again, but you can make a new one.",
+    "share": "Share",
+    "shareFailed": "Couldn't open sharing on this device. Copy the message below instead.",
+    "messageLabel": "Message",
+    "done": "Done"
+  },
+  "message": "Hi! {name} is in our family tree “{tree}” on MyOrbit. Let's link our trees so both families can see each other's side. Open this link:\n{link}\n\nOr open MyOrbit, tap “Have a code?” and enter: {code}\n\nThe code works once and expires in 14 days.",
+  "join": {
+    "preview": "{requester} from “{tree}” wants to link their tree with yours through:",
+    "previewNoRequester": "“{tree}” wants to link their tree with yours through:",
+    "pickTree": "Which of your trees is this person in?",
+    "pickPerson": "Which person is it?",
+    "search": "Search",
+    "link": "Link our trees",
+    "linking": "Linking…",
+    "noOwnedTrees": "Only an owner of a family tree can accept a link, and you don't own a tree yet.",
+    "done": "Linked!"
+  },
+  "errors": {
+    "notAllowed": "Only tree owners can link or unlink trees.",
+    "sameTree": "Choose someone in a different tree.",
+    "minor": "Children below the age limit can't be linked.",
+    "exists": "This person is already linked with that tree."
+  }
+}

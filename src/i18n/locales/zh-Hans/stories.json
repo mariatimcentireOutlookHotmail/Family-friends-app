@@ -1,0 +1,53 @@
+{
+  "title": "故事",
+  "none": "还没有关于{name}的故事。",
+  "noneMemorial": "分享一段关于{name}的回忆。",
+  "add": "分享故事",
+  "edit": "编辑",
+  "delete": "删除",
+  "deleteConfirm": "要为所有人删除这个故事吗？",
+  "deleteYes": "确定删除",
+  "keep": "保留",
+  "by": "{author} · {date}",
+  "someone": "某人",
+  "you": "你",
+  "writtenIn": "用{language}写成",
+  "deleteFailed": "无法删除故事，请重试。",
+  "screen": {
+    "newTitle": "分享故事",
+    "editTitle": "编辑故事",
+    "heading": "关于{name}的故事",
+    "headingMemorial": "关于{name}的回忆",
+    "titleLabel": "标题（可选）",
+    "titleHint": "例如：我们相识的经过、她拿手的仁当",
+    "bodyLabel": "故事",
+    "bodyHint": "像平时讲述那样写下来。",
+    "langLabel": "你用的语言",
+    "langNote": "故事不会被翻译，大家读到的就是你写的原文。",
+    "save": "保存",
+    "saving": "正在保存…",
+    "needBody": "请先写几句话。",
+    "failed": "无法保存故事，请重试。"
+  },
+  "memorial": {
+    "banner": "永远怀念",
+    "bannerYears": "永远怀念 · {years}",
+    "settings": "纪念设置",
+    "title": "纪念资料",
+    "explain": "纪念资料用于已故的亲人。家谱里的每个人都可以分享对{name}的回忆，你指定的守护人负责照看这份资料：可以整理或删除故事和照片。",
+    "switch": "设为纪念资料",
+    "stewards": "守护人（最多 5 位）",
+    "stewardsHint": "负责照看这份资料的家谱成员。",
+    "noName": "没有个人资料的成员（{role}）",
+    "role": {
+      "owner": "所有者",
+      "editor": "编辑者",
+      "viewer": "查看者"
+    },
+    "save": "保存",
+    "saving": "正在保存…",
+    "saved": "已保存。",
+    "failed": "无法保存，请重试。",
+    "tooMany": "最多选择 5 位守护人。"
+  }
+}

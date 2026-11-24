@@ -1,0 +1,65 @@
+{
+  "section": {
+    "title": "Pohon keluarga yang terhubung",
+    "alsoIn": "Juga ada di “{tree}”",
+    "none": "{name} belum terhubung dengan pohon keluarga lain.",
+    "explain": "Jika {name} juga ada di pohon keluarga lain (misalnya keluarga suami atau istri), Anda bisa menghubungkan keduanya. Setiap keluarga tetap mengelola pohonnya sendiri; keduanya bisa melihat versi {name} di pohon lain beserta keluarga dekatnya.",
+    "button": "Hubungkan dengan pohon keluarga lain",
+    "pending": "Kode penghubung dikirim {sent}. Berlaku sampai {expires}.",
+    "newCode": "Buat kode baru",
+    "cancel": "Batalkan kode",
+    "unlink": "Putuskan",
+    "unlinkTitle": "Putuskan hubungan pohon ini?",
+    "unlinkExplain": "Kedua keluarga tetap punya pohon masing-masing; hanya tidak lagi melihat versi {name} di pohon lain.",
+    "unlinkConfirm": "Ya, putuskan",
+    "unlinking": "Memutuskan…",
+    "namesOnly": "Hanya nama dan tahun. Kontak dan data anak-anak tidak pernah dibagikan.",
+    "keep": "Tetap terhubung"
+  },
+  "relation": {
+    "father": "Ayah",
+    "mother": "Ibu",
+    "parent": "Orang tua",
+    "son": "Anak laki-laki",
+    "daughter": "Anak perempuan",
+    "child": "Anak",
+    "husband": "Suami",
+    "wife": "Istri",
+    "partner": "Pasangan",
+    "brother": "Saudara laki-laki",
+    "sister": "Saudara perempuan",
+    "sibling": "Saudara"
+  },
+  "screen": {
+    "title": "Hubungkan pohon",
+    "heading": "Hubungkan {name} dengan pohon keluarga lain",
+    "intro": "Kirim kode ini kepada pemilik pohon keluarga lain. Mereka memasukkannya di “Punya kode?” lalu memilih {name} di pohon mereka.",
+    "langLabel": "Bahasa pesan",
+    "create": "Buat kode penghubung",
+    "creating": "Membuat…",
+    "codeLabel": "Kode penghubung",
+    "codeNote": "Kode hanya bisa dipakai sekali dan berlaku 14 hari. Kode tidak akan ditampilkan lagi, tetapi Anda bisa membuat yang baru.",
+    "share": "Bagikan",
+    "shareFailed": "Tidak bisa membuka menu berbagi di perangkat ini. Salin pesan di bawah.",
+    "messageLabel": "Pesan",
+    "done": "Selesai"
+  },
+  "message": "Halo! {name} ada di pohon keluarga kami “{tree}” di MyOrbit. Yuk hubungkan pohon kita agar kedua keluarga bisa saling melihat. Buka tautan ini:\n{link}\n\nAtau buka MyOrbit, ketuk “Punya kode?” lalu masukkan: {code}\n\nKode hanya bisa dipakai sekali dan berlaku 14 hari.",
+  "join": {
+    "preview": "{requester} dari “{tree}” ingin menghubungkan pohon mereka dengan pohon Anda melalui:",
+    "previewNoRequester": "“{tree}” ingin menghubungkan pohon mereka dengan pohon Anda melalui:",
+    "pickTree": "Orang ini ada di pohon Anda yang mana?",
+    "pickPerson": "Orang yang mana?",
+    "search": "Cari",
+    "link": "Hubungkan pohon kita",
+    "linking": "Menghubungkan…",
+    "noOwnedTrees": "Hanya pemilik pohon keluarga yang bisa menerima penghubung, dan Anda belum memiliki pohon.",
+    "done": "Terhubung!"
+  },
+  "errors": {
+    "notAllowed": "Hanya pemilik pohon yang bisa menghubungkan atau memutuskan pohon.",
+    "sameTree": "Pilih orang di pohon yang berbeda.",
+    "minor": "Anak di bawah batas usia tidak bisa dihubungkan.",
+    "exists": "Orang ini sudah terhubung dengan pohon itu."
+  }
+}

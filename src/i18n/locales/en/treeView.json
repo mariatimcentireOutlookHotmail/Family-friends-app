@@ -1,0 +1,26 @@
+{
+  "title": "Family tree",
+  "open": "Open tree view",
+  "showInTree": "Show in tree",
+  "view": {
+    "label": "View",
+    "family": "Family",
+    "ancestors": "Ancestors",
+    "descendants": "Descendants"
+  },
+  "generations": {
+    "label": "Generations",
+    "value": "{count, plural, one {# generation} other {# generations}}",
+    "fewer": "Fewer generations",
+    "more": "More generations"
+  },
+  "friends": "Friends",
+  "zoomIn": "Zoom in",
+  "zoomOut": "Zoom out",
+  "fit": "Fit",
+  "backToMe": "Back to me",
+  "you": "You",
+  "hint": "Drag to move, pinch or use + and − to zoom. Tap a card to open it; press and hold to centre the tree on that person.",
+  "notFound": "This family tree couldn't be found.",
+  "empty": "No one in this tree yet."
+}

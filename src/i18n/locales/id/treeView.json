@@ -1,0 +1,26 @@
+{
+  "title": "Pohon keluarga",
+  "open": "Buka tampilan pohon",
+  "showInTree": "Lihat di pohon",
+  "view": {
+    "label": "Tampilan",
+    "family": "Keluarga",
+    "ancestors": "Leluhur",
+    "descendants": "Keturunan"
+  },
+  "generations": {
+    "label": "Generasi",
+    "value": "{count} generasi",
+    "fewer": "Kurangi generasi",
+    "more": "Tambah generasi"
+  },
+  "friends": "Teman",
+  "zoomIn": "Perbesar",
+  "zoomOut": "Perkecil",
+  "fit": "Muat semua",
+  "backToMe": "Kembali ke saya",
+  "you": "Anda",
+  "hint": "Geser untuk berpindah, cubit atau pakai + dan − untuk memperbesar. Ketuk kartu untuk membukanya; tekan lama untuk menjadikan orang itu pusat pohon.",
+  "notFound": "Pohon keluarga ini tidak ditemukan.",
+  "empty": "Belum ada orang di pohon ini."
+}

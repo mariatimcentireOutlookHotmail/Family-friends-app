@@ -1,0 +1,53 @@
+{
+  "title": "Stories",
+  "none": "No stories about {name} yet.",
+  "noneMemorial": "Share a memory of {name}.",
+  "add": "Share a story",
+  "edit": "Edit",
+  "delete": "Delete",
+  "deleteConfirm": "Delete this story for everyone?",
+  "deleteYes": "Yes, delete",
+  "keep": "Keep it",
+  "by": "{author} · {date}",
+  "someone": "Someone",
+  "you": "You",
+  "writtenIn": "Written in {language}",
+  "deleteFailed": "Couldn't delete the story. Please try again.",
+  "screen": {
+    "newTitle": "Share a story",
+    "editTitle": "Edit story",
+    "heading": "A story about {name}",
+    "headingMemorial": "A memory of {name}",
+    "titleLabel": "Title (optional)",
+    "titleHint": "e.g. How we met, Her famous rendang",
+    "bodyLabel": "Story",
+    "bodyHint": "Write it the way you'd tell it.",
+    "langLabel": "Language you're writing in",
+    "langNote": "Stories aren't translated; others read them as you write them.",
+    "save": "Save",
+    "saving": "Saving…",
+    "needBody": "Write a few words first.",
+    "failed": "Couldn't save the story. Please try again."
+  },
+  "memorial": {
+    "banner": "In loving memory",
+    "bannerYears": "In loving memory · {years}",
+    "settings": "Memorial settings",
+    "title": "Memorial profile",
+    "explain": "A memorial profile is for someone who has died. Everyone in the tree can share memories of {name}, and the stewards you choose look after the profile: they can tidy or remove stories and photos.",
+    "switch": "Make this a memorial profile",
+    "stewards": "Stewards (up to 5)",
+    "stewardsHint": "Members of the tree who look after this profile.",
+    "noName": "Member without a profile ({role})",
+    "role": {
+      "owner": "owner",
+      "editor": "editor",
+      "viewer": "viewer"
+    },
+    "save": "Save",
+    "saving": "Saving…",
+    "saved": "Saved.",
+    "failed": "Couldn't save. Please try again.",
+    "tooMany": "Choose at most 5 stewards."
+  }
+}

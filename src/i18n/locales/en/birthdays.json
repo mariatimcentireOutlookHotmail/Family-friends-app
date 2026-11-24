@@ -1,0 +1,20 @@
+{
+  "title": "Upcoming birthdays",
+  "none": "No birthdays in the next {days} days.",
+  "someone": "Someone",
+  "today": "Today",
+  "tomorrow": "Tomorrow",
+  "inDays": "{count, plural, one {In # day} other {In # days}} · {date}",
+  "turns": "turns {age}",
+  "privacyNote": "Only birthdays you're allowed to see are listed.",
+  "remind": "Remind me on this phone",
+  "remindHint": "A notification at 9:00 on the day.",
+  "turnedOn": "Reminders are on for this phone.",
+  "denied": "Notifications are turned off for MyOrbit. You can allow them in your phone's settings.",
+  "channel": "Birthdays",
+  "notification": {
+    "title": "Birthday today",
+    "body": "It's {name}'s birthday today.",
+    "bodyAge": "{name} turns {age} today."
+  }
+}

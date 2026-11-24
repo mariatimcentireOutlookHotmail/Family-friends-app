@@ -78,3 +78,41 @@ export function groupRelatives(personId: string, rows: RelationshipRow[]): Relat
   }
   return groups;
 }
+
+// -----------------------------------------------------------------------------
+// Working from the whole tree's links (useMyTrees), not one person's rows.
+// -----------------------------------------------------------------------------
+
+export type TreeLinkRow = { type: RelationshipType | string; person_a: string; person_b: string };
+
+export const parentIds = (id: string, links: TreeLinkRow[]) =>
+  links.filter((l) => l.type === "parent" && l.person_b === id).map((l) => l.person_a);
+
+export const childIds = (id: string, links: TreeLinkRow[]) =>
+  links.filter((l) => l.type === "parent" && l.person_a === id).map((l) => l.person_b);
+
+/** Siblings linked directly with a "sibling" link. */
+export const directSiblingIds = (id: string, links: TreeLinkRow[]) =>
+  links
+    .filter((l) => l.type === "sibling" && (l.person_a === id || l.person_b === id))
+    .map((l) => (l.person_a === id ? l.person_b : l.person_a));
+
+/**
+ * Siblings through a shared parent but without a "sibling" link of their own
+ * (e.g. an uncle added as grandfather's child is the father's brother).
+ */
+export function impliedSiblingIds(id: string, links: TreeLinkRow[]): string[] {
+  const direct = new Set(directSiblingIds(id, links));
+  const out = new Set<string>();
+  for (const parent of parentIds(id, links)) {
+    for (const child of childIds(parent, links)) {
+      if (child !== id && !direct.has(child)) out.add(child);
+    }
+  }
+  return [...out];
+}
+
+/** All siblings: direct links plus shared parents. */
+export const allSiblingIds = (id: string, links: TreeLinkRow[]) => [
+  ...new Set([...directSiblingIds(id, links), ...impliedSiblingIds(id, links)]),
+];

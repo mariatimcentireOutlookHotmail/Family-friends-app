@@ -1,0 +1,65 @@
+{
+  "section": {
+    "title": "关联的家谱",
+    "alsoIn": "也在“{tree}”中",
+    "none": "{name}还没有关联其他家庭的家谱。",
+    "explain": "如果{name}也在另一个家庭的家谱里（比如丈夫或妻子的家），可以把两个家谱关联起来。每个家庭仍各自管理自己的家谱；双方都能看到对方家谱里的{name}及其近亲。",
+    "button": "关联另一个家庭的家谱",
+    "pending": "关联码已于{sent}发出，有效期至{expires}。",
+    "newCode": "生成新关联码",
+    "cancel": "取消关联码",
+    "unlink": "取消关联",
+    "unlinkTitle": "取消这两个家谱的关联？",
+    "unlinkExplain": "两个家庭仍保留各自的家谱，只是不再看到对方家谱里的{name}。",
+    "unlinkConfirm": "确定取消",
+    "unlinking": "正在取消…",
+    "namesOnly": "只显示姓名和年份。联系方式和孩子的信息绝不会共享。",
+    "keep": "保留关联"
+  },
+  "relation": {
+    "father": "父亲",
+    "mother": "母亲",
+    "parent": "父母",
+    "son": "儿子",
+    "daughter": "女儿",
+    "child": "子女",
+    "husband": "丈夫",
+    "wife": "妻子",
+    "partner": "伴侣",
+    "brother": "兄弟",
+    "sister": "姐妹",
+    "sibling": "兄弟姐妹"
+  },
+  "screen": {
+    "title": "关联家谱",
+    "heading": "把{name}和另一个家庭的家谱关联起来",
+    "intro": "把这个关联码发给对方家谱的所有者。对方在“有邀请码？”中输入，然后在他们的家谱里选择{name}。",
+    "langLabel": "消息语言",
+    "create": "生成关联码",
+    "creating": "正在生成…",
+    "codeLabel": "关联码",
+    "codeNote": "关联码只能使用一次，14 天后失效。它不会再次显示，但你可以生成新的。",
+    "share": "分享",
+    "shareFailed": "此设备无法打开分享，请复制下面的消息。",
+    "messageLabel": "消息",
+    "done": "完成"
+  },
+  "message": "你好！{name}在我们 MyOrbit 上的家谱“{tree}”里。我们把两家的家谱关联起来吧，这样两个家庭都能看到对方。打开这个链接：\n{link}\n\n或者打开 MyOrbit，点“有邀请码？”，输入：{code}\n\n关联码只能使用一次，14 天后失效。",
+  "join": {
+    "preview": "“{tree}”的{requester}想通过下面这个人把两家的家谱关联起来：",
+    "previewNoRequester": "“{tree}”想通过下面这个人把两家的家谱关联起来：",
+    "pickTree": "这个人在你的哪个家谱里？",
+    "pickPerson": "是哪一位？",
+    "search": "搜索",
+    "link": "关联两家的家谱",
+    "linking": "正在关联…",
+    "noOwnedTrees": "只有家谱所有者才能接受关联，而你还没有自己的家谱。",
+    "done": "已关联！"
+  },
+  "errors": {
+    "notAllowed": "只有家谱所有者可以关联或取消关联。",
+    "sameTree": "请选择另一个家谱里的人。",
+    "minor": "未达到年龄限制的孩子不能关联。",
+    "exists": "这个人已经和那个家谱关联了。"
+  }
+}

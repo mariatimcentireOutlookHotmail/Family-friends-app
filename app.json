@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Family & Friends",
+    "name": "MyOrbit",
     "slug": "family-friends-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,7 +11,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#1E1B4B",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -26,9 +26,18 @@
     "plugins": [
       "expo-router",
       "expo-status-bar",
-      "expo-localization"
+      "expo-localization",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "MyOrbit uses your photos so you can add pictures of your family.",
+          "cameraPermission": "MyOrbit uses the camera so you can take pictures of your family.",
+          "microphonePermission": false
+        }
+      ],
+      "expo-notifications"
     ],
-    "scheme": "familyfriends",
+    "scheme": "myorbit",
     "experiments": {
       "typedRoutes": true
     }

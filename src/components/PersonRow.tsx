@@ -1,5 +1,7 @@
 import { Pressable, Text, View } from "react-native";
 
+import { Avatar } from "@/components/Avatar";
+
 type Props = {
   name: string;
   /** Second line, e.g. "aka Michelle" or "Adoptive · Probably". */
@@ -8,10 +10,12 @@ type Props = {
   badge?: string | null;
   onPress?: () => void;
   first?: boolean;
+  /** Profile photo thumbnail; the initial is shown without one. */
+  photo?: { url: string; key: string } | null;
 };
 
-/** One person in a list: initial avatar, name, optional details. Tappable. */
-export function PersonRow({ name, subtitle, badge, onPress, first }: Props) {
+/** One person in a list: photo (or initial), name, optional details. Tappable. */
+export function PersonRow({ name, subtitle, badge, onPress, first, photo }: Props) {
   return (
     <Pressable
       onPress={onPress}
@@ -21,11 +25,7 @@ export function PersonRow({ name, subtitle, badge, onPress, first }: Props) {
         first ? "" : "border-t border-gray-100 dark:border-gray-800"
       }`}
     >
-      <View className="h-10 w-10 items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900">
-        <Text className="text-base font-semibold text-indigo-700 dark:text-indigo-200">
-          {Array.from(name)[0] ?? "?"}
-        </Text>
-      </View>
+      <Avatar name={name} photo={photo} size={40} />
       <View className="flex-1">
         <Text className="text-base text-gray-900 dark:text-gray-100">{name}</Text>
         {subtitle ? <Text className="text-sm text-gray-600 dark:text-gray-400">{subtitle}</Text> : null}

@@ -1,0 +1,63 @@
+{
+  "title": "修改记录",
+  "treeHeading": "{tree}的最近修改",
+  "personHeading": "{name}的修改记录",
+  "open": "修改记录",
+  "recent": "最近修改",
+  "empty": "还没有修改。",
+  "you": "你",
+  "someone": "某人",
+  "ownersNote": "所有修改都保存在这里。家谱所有者可以撤销修改。",
+  "undo": "撤销",
+  "undone": "已撤销",
+  "undoOf": "撤销了之前的修改",
+  "showMore": "显示更多",
+  "loadError": "无法加载修改记录。",
+  "retry": "重试",
+  "none": "未填写",
+  "event": {
+    "birth": "出生",
+    "death": "去世"
+  },
+  "kind": {
+    "parent": "父母",
+    "partner": "伴侣",
+    "sibling": "兄弟姐妹",
+    "friend": "朋友"
+  },
+  "lines": {
+    "personAdded": "添加了{name}",
+    "personDeleted": "删除了{name}",
+    "claimed": "{name}加入并认领了自己的资料",
+    "sexChanged": "把性别从{from}改为{to}",
+    "livingChanged": "从{from}改为{to}",
+    "countryChanged": "把国家从{from}改为{to}",
+    "birthOrderChanged": "把出生排行从{from}改为{to}",
+    "nameChanged": "把姓名从{from}改为{to}",
+    "nameAdded": "添加了名字{name}",
+    "nameRemoved": "删除了名字{name}",
+    "dateAdded": "添加了{event}年份 {year}",
+    "dateChanged": "把{event}年份从 {from} 改为 {to}",
+    "dateRemoved": "删除了{event}日期",
+    "dayMonthChanged": "修改了月和日",
+    "contactsChanged": "更新了联系方式",
+    "linkAddedParent": "把{a}添加为{b}的父母",
+    "linkAdded": "关联了{a}和{b}（{kind}）",
+    "linkRemoved": "删除了{a}和{b}之间的关系",
+    "linkChanged": "修改了{a}和{b}之间的关系",
+    "treeLinked": "把{name}与“{tree}”家谱关联",
+    "treeUnlinked": "取消了{name}与“{tree}”家谱的关联",
+    "storyAdded": "分享了关于{name}的故事：“{title}”",
+    "storyEdited": "编辑了关于{name}的故事：“{title}”",
+    "storyRemoved": "删除了关于{name}的故事：“{title}”",
+    "memorialOn": "把{name}的资料设为纪念资料",
+    "memorialOff": "取消了{name}的纪念资料"
+  },
+  "errors": {
+    "notAllowed": "只有家谱所有者可以撤销修改。",
+    "conflict": "无法撤销，因为之后又被修改过。请先撤销较新的修改。",
+    "claimed": "这份资料现在属于别人，只有对方能修改。",
+    "alreadyUndone": "这项修改已经撤销了。",
+    "failed": "撤销失败，请重试。"
+  }
+}

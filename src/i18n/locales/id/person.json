@@ -10,7 +10,8 @@
     "loadError": "Gagal memuat data orang ini.",
     "retry": "Coba lagi",
     "you": "Anda",
-    "relationToYou": "Hubungan dengan Anda: {relation}"
+    "relationToYou": "Hubungan dengan Anda: {relation}",
+    "viaParents": "Lewat orang tua yang sama"
   },
   "sections": {
     "parents": "Orang tua",
@@ -65,7 +66,18 @@
       "tooManyParents": "Orang ini sudah memiliki dua orang tua kandung.",
       "duplicate": "Kedua orang ini sudah terhubung dengan cara ini.",
       "notAllowed": "Anda dapat melihat pohon ini tetapi tidak dapat mengubahnya.",
-      "failed": "Gagal menambahkan orang ini. Silakan coba lagi."
-    }
+      "failed": "Gagal menambahkan orang ini. Silakan coba lagi.",
+      "partlyLinked": "Orang tersebut sudah ditambahkan, tetapi beberapa hubungan tidak bisa dibuat: {reason}"
+    },
+    "modeLabel": "Siapa yang Anda tambahkan?",
+    "modeNew": "Orang baru",
+    "modeExisting": "Orang yang sudah ada di pohon",
+    "pickExisting": "Pilih siapa {relation} dari {name} (bisa lebih dari satu)",
+    "search": "Cari",
+    "noOneToPick": "Tidak ada orang lain di pohon yang bisa dihubungkan dengan cara ini.",
+    "linkSubmit": "{count, plural, =0 {Hubungkan} other {Hubungkan # orang}}",
+    "linking": "Menghubungkan…",
+    "alsoChildOfParents": "Juga anak dari {names} (jadi bersaudara lewat orang tua mereka)",
+    "alsoParentOf": "Juga orang tua dari:"
   }
 }

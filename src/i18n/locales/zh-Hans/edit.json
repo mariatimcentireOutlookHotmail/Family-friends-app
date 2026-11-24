@@ -13,7 +13,7 @@
   },
   "delete": {
     "title": "删除此人",
-    "explain": "这将删除{name}、其姓名以及与他人的关系。此操作无法撤销。",
+    "explain": "这会删除{name}及其名字、日期和与他人的关系。如果删错了，家谱所有者可以在修改记录（最近修改）中恢复。",
     "button": "删除{name}",
     "confirm": "确定要删除{name}吗？",
     "confirmButton": "确定删除",

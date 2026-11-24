@@ -4,6 +4,7 @@ import { useAuth } from "./auth";
 import type { LifeEvent, PartialDate } from "./dates";
 import { isPostgrestError } from "./postgrestError";
 import type { Certainty, LinkedPerson, Relation, RelationshipRow, RelationshipSubtype } from "./relatives";
+import type { SocialLinks } from "./social";
 import { supabase } from "./supabase";
 import { myTreesKey, type NewName, type PersonName, type Sex } from "./trees";
 
@@ -22,7 +23,12 @@ export type Access = {
   levels: Record<PrivacyField, PrivacyLevel>;
 };
 
-export type Contacts = { phone: string | null; email: string | null; address: string | null };
+export type Contacts = {
+  phone: string | null;
+  email: string | null;
+  address: string | null;
+  social?: SocialLinks | null;
+};
 
 export type PersonDetails = {
   id: string;
@@ -60,7 +66,7 @@ export function usePerson(personId: string | undefined) {
           `id, tree_id, claimed_by_user_id, sex, living_status, country, my_access,
            person_names(given, family, full_display, is_primary, script, type),
            events(type, year, qualifier, has_full_date, event_dates(month, day)),
-           person_contacts(phone, email, address)`,
+           person_contacts(phone, email, address, social)`,
         )
         .eq("id", personId!)
         .maybeSingle();
@@ -151,6 +157,35 @@ export function useAddRelative() {
           ? queryClient.invalidateQueries({ queryKey: personKey(input.otherParentId) })
           : Promise.resolve(),
       ]);
+    },
+  });
+}
+
+export type LinkPeopleInput = {
+  personId: string;
+  /** What each of `others` is to `personId`. */
+  relation: Relation;
+  others: string[];
+  subtype: RelationshipSubtype | null;
+  certainty: Certainty;
+};
+
+/** Connects people who are already in the tree (all or nothing). */
+export function useLinkPeople() {
+  const refresh = useRefreshPeople();
+  return useMutation({
+    mutationFn: async (input: LinkPeopleInput) => {
+      const { error } = await supabase.rpc("link_people", {
+        p_person: input.personId,
+        p_relation: input.relation,
+        p_others: input.others,
+        p_subtype: input.relation === "friend" ? null : input.subtype,
+        p_certainty: input.certainty,
+      });
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      void refresh();
     },
   });
 }

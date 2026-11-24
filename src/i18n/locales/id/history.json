@@ -1,0 +1,63 @@
+{
+  "title": "Riwayat",
+  "treeHeading": "Perubahan terbaru di {tree}",
+  "personHeading": "Perubahan pada {name}",
+  "open": "Riwayat",
+  "recent": "Perubahan terbaru",
+  "empty": "Belum ada perubahan.",
+  "you": "Anda",
+  "someone": "Seseorang",
+  "ownersNote": "Semua perubahan tersimpan di sini. Pemilik pohon bisa membatalkan perubahan.",
+  "undo": "Batalkan",
+  "undone": "Dibatalkan",
+  "undoOf": "Membatalkan perubahan sebelumnya",
+  "showMore": "Tampilkan lagi",
+  "loadError": "Riwayat tidak bisa dimuat.",
+  "retry": "Coba lagi",
+  "none": "belum diisi",
+  "event": {
+    "birth": "lahir",
+    "death": "wafat"
+  },
+  "kind": {
+    "parent": "orang tua",
+    "partner": "pasangan",
+    "sibling": "saudara",
+    "friend": "teman"
+  },
+  "lines": {
+    "personAdded": "Menambahkan {name}",
+    "personDeleted": "Menghapus {name}",
+    "claimed": "{name} bergabung dan mengklaim profilnya",
+    "sexChanged": "Mengubah jenis kelamin dari {from} menjadi {to}",
+    "livingChanged": "Mengubah dari {from} menjadi {to}",
+    "countryChanged": "Mengubah negara dari {from} menjadi {to}",
+    "birthOrderChanged": "Mengubah urutan kelahiran dari {from} menjadi {to}",
+    "nameChanged": "Mengubah nama dari {from} menjadi {to}",
+    "nameAdded": "Menambahkan nama {name}",
+    "nameRemoved": "Menghapus nama {name}",
+    "dateAdded": "Menambahkan tahun {event} {year}",
+    "dateChanged": "Mengubah tahun {event} dari {from} menjadi {to}",
+    "dateRemoved": "Menghapus tanggal {event}",
+    "dayMonthChanged": "Mengubah tanggal dan bulan",
+    "contactsChanged": "Memperbarui kontak",
+    "linkAddedParent": "Menambahkan {a} sebagai orang tua {b}",
+    "linkAdded": "Menghubungkan {a} dan {b} ({kind})",
+    "linkRemoved": "Menghapus hubungan antara {a} dan {b}",
+    "linkChanged": "Mengubah hubungan antara {a} dan {b}",
+    "treeLinked": "Menghubungkan {name} dengan pohon “{tree}”",
+    "treeUnlinked": "Memutuskan {name} dari pohon “{tree}”",
+    "storyAdded": "Membagikan cerita tentang {name}: “{title}”",
+    "storyEdited": "Mengubah cerita tentang {name}: “{title}”",
+    "storyRemoved": "Menghapus cerita tentang {name}: “{title}”",
+    "memorialOn": "Menjadikan profil {name} profil kenangan",
+    "memorialOff": "Mematikan profil kenangan {name}"
+  },
+  "errors": {
+    "notAllowed": "Hanya pemilik pohon yang bisa membatalkan perubahan.",
+    "conflict": "Ini tidak bisa dibatalkan karena sudah diubah lagi setelahnya. Batalkan perubahan yang lebih baru dulu.",
+    "claimed": "Profil ini sekarang milik orang lain, jadi hanya dia yang bisa mengubahnya.",
+    "alreadyUndone": "Perubahan ini sudah dibatalkan.",
+    "failed": "Tidak bisa membatalkan. Silakan coba lagi."
+  }
+}

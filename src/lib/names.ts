@@ -1,3 +1,5 @@
+import type { PersonName } from "./trees";
+
 /**
  * Personal-name helpers. Names are stored in parts (given, family, ...) plus a
  * ready-to-show `full_display`. The display order follows the NAME's own
@@ -66,4 +68,48 @@ export function splitSavedName(name: {
   if (!given || !family) return { given, family, familyFirst: isFamilyFirstByDefault(detectScript(given, family)) };
   const familyFirst = formatFullName({ given, family, familyFirst: true }) === name.full_display;
   return { given, family, familyFirst };
+}
+
+// -----------------------------------------------------------------------------
+// Which name to show
+// -----------------------------------------------------------------------------
+
+type HasNames = { person_names: Pick<PersonName, "full_display" | "is_primary" | "type">[] };
+
+/** The name to show for a person: their main name, or the first one. */
+export function primaryName(person: HasNames): string | null {
+  const names = person.person_names ?? [];
+  return (names.find((n) => n.is_primary) ?? names[0])?.full_display ?? null;
+}
+
+/** "Also known as" names, e.g. the English name of a Chinese person. */
+/** The person's nickname, if they have one (the first, if several). */
+export function nickname(person: HasNames): string | null {
+  return (person.person_names ?? []).find((n) => n.type === "nickname" && !n.is_primary)?.full_display ?? null;
+}
+
+export function akaNames(person: HasNames): string[] {
+  return (person.person_names ?? [])
+    .filter((n) => !n.is_primary && n.type === "aka")
+    .map((n) => n.full_display);
+}
+
+/**
+ * The other name family members call someone, if any: their nickname, or
+ * else their first "also known as" name (often an English name next to a
+ * Chinese one). Null when they only go by their main name.
+ */
+export function knownAs(person: HasNames): string | null {
+  const name = nickname(person) ?? akaNames(person)[0] ?? null;
+  return name && name !== primaryName(person) ? name : null;
+}
+
+/**
+ * The name family members know someone by: their nickname or "also known
+ * as" name if they have one, otherwise their main name. Used on the tree, in
+ * lists and for relatives; the person's own page keeps the main name as its
+ * title.
+ */
+export function everydayName(person: HasNames): string | null {
+  return knownAs(person) ?? primaryName(person);
 }

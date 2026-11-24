@@ -10,7 +10,8 @@
     "loadError": "Couldn't load this person.",
     "retry": "Try again",
     "you": "You",
-    "relationToYou": "Your relation: {relation}"
+    "relationToYou": "Your relation: {relation}",
+    "viaParents": "Through a shared parent"
   },
   "sections": {
     "parents": "Parents",
@@ -65,7 +66,18 @@
       "tooManyParents": "This person already has two biological parents.",
       "duplicate": "These two people are already linked this way.",
       "notAllowed": "You can view this tree but not change it.",
-      "failed": "Couldn't add this person. Please try again."
-    }
+      "failed": "Couldn't add this person. Please try again.",
+      "partlyLinked": "The person was added, but some links couldn't be made: {reason}"
+    },
+    "modeLabel": "Who are you adding?",
+    "modeNew": "Someone new",
+    "modeExisting": "Someone already in the tree",
+    "pickExisting": "Choose who is the {relation} of {name} (you can pick several)",
+    "search": "Search",
+    "noOneToPick": "No one else in the tree can be linked this way.",
+    "linkSubmit": "{count, plural, =0 {Link} one {Link # person} other {Link # people}}",
+    "linking": "Linking…",
+    "alsoChildOfParents": "Also a child of {names} (so they're siblings through their parents)",
+    "alsoParentOf": "Also the parent of:"
   }
 }

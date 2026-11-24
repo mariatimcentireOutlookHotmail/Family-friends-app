@@ -13,7 +13,7 @@
   },
   "delete": {
     "title": "Hapus orang ini",
-    "explain": "Ini akan menghapus {name}, nama-namanya, dan hubungannya dengan orang lain. Tindakan ini tidak dapat dibatalkan.",
+    "explain": "Ini menghapus {name}, beserta nama, tanggal, dan hubungannya dengan orang lain. Jika keliru, pemilik pohon bisa mengembalikannya dari Riwayat (Perubahan terbaru).",
     "button": "Hapus {name}",
     "confirm": "Yakin ingin menghapus {name}?",
     "confirmButton": "Ya, hapus",

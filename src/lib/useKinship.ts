@@ -34,5 +34,7 @@ export function useKinship(tree: Tree | undefined): Map<string, KinLabel> {
 /** "Uncle · Father's elder brother", or just the description if there's no word. */
 export function labelText(label: KinLabel | undefined): string | null {
   if (!label) return null;
-  return label.term ? `${label.term} · ${label.description}` : label.description;
+  // English often has the same word for both ("Mother · Mother"): say it once.
+  if (!label.term || label.term.toLowerCase() === label.description.toLowerCase()) return label.description;
+  return `${label.term} · ${label.description}`;
 }

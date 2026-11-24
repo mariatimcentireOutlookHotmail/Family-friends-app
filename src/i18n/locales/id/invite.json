@@ -1,0 +1,53 @@
+{
+  "section": {
+    "title": "Undang {name}",
+    "body": "Kirim kode kepada {name} agar ia bisa bergabung di MyOrbit dan mengelola profilnya sendiri.",
+    "button": "Undang {name}",
+    "pending": "Undangan dikirim {sent}. Kode berlaku sampai {expires}.",
+    "newCode": "Buat kode baru",
+    "cancel": "Batalkan undangan",
+    "cancelled": "Undangan dibatalkan."
+  },
+  "screen": {
+    "title": "Undang",
+    "heading": "Undang {name}",
+    "langLabel": "Bahasa pesan",
+    "create": "Buat kode undangan",
+    "creating": "Membuat…",
+    "codeLabel": "Kode undangan",
+    "codeNote": "Bagikan kode ini hanya kepada {name}. Kode hanya bisa dipakai sekali dan berlaku 14 hari. Kode tidak akan ditampilkan lagi, tetapi Anda selalu bisa membuat yang baru.",
+    "share": "Bagikan",
+    "shareFailed": "Tidak bisa membuka menu berbagi di perangkat ini. Salin pesan di bawah.",
+    "messageLabel": "Pesan",
+    "done": "Selesai"
+  },
+  "message": "Halo {name}! Saya sudah menambahkan Anda ke pohon keluarga “{tree}” di MyOrbit. Untuk bergabung, buka tautan ini dan masuk dengan email Anda:\n{link}\n\nAtau buka aplikasi MyOrbit, ketuk “Punya kode?” lalu masukkan: {code}\n\nKode hanya bisa dipakai sekali dan berlaku 14 hari.",
+  "join": {
+    "homeButton": "Punya kode?",
+    "title": "Masukkan kode",
+    "body": "Mendapat kode dari kerabat? Masukkan di sini: undangan bergabung ke pohon, atau permintaan menghubungkan dua pohon keluarga.",
+    "codeLabel": "Kode",
+    "check": "Periksa kode",
+    "checking": "Memeriksa…",
+    "previewWithInviter": "{inviter} mengundang Anda bergabung ke “{tree}” sebagai:",
+    "preview": "Anda diundang bergabung ke “{tree}” sebagai:",
+    "claimNote": "Setelah Anda menerima, profil ini menjadi milik Anda: hanya Anda yang bisa mengubah datanya, dan Anda bisa menambahkan kerabat ke pohon.",
+    "thisIsMe": "Ini saya",
+    "joining": "Bergabung…",
+    "notMe": "Bukan saya",
+    "notMeNote": "Kalau begitu, jangan terima. Minta pengirim kode memeriksa profil mana yang dimaksud."
+  },
+  "errors": {
+    "invalid": "Kode itu tidak cocok dengan undangan mana pun. Periksa lalu coba lagi.",
+    "used": "Undangan ini sudah dipakai.",
+    "revoked": "Undangan ini dibatalkan. Minta kode baru.",
+    "expired": "Undangan ini sudah kedaluwarsa. Minta kode baru.",
+    "tooManyTries": "Terlalu banyak kode salah. Coba lagi dalam satu jam.",
+    "alreadyInTree": "Anda sudah punya profil di pohon keluarga ini.",
+    "notAllowed": "Hanya pemilik dan editor pohon yang bisa mengirim undangan.",
+    "blocked_claimed": "Profil ini sudah dimiliki seseorang.",
+    "blocked_deceased": "Orang yang sudah wafat tidak bisa diundang.",
+    "blocked_minor": "Anak di bawah batas usia tidak bisa diundang. Mereka bisa mengklaim profilnya saat sudah cukup umur.",
+    "failed": "Terjadi kesalahan. Silakan coba lagi."
+  }
+}

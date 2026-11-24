@@ -1,6 +1,14 @@
 import { describe, expect, it } from "vitest";
 
-import { groupRelatives, type LinkedPerson, type RelationshipRow } from "./relatives";
+import {
+  allSiblingIds,
+  childIds,
+  groupRelatives,
+  impliedSiblingIds,
+  parentIds,
+  type LinkedPerson,
+  type RelationshipRow,
+} from "./relatives";
 
 function person(id: string, name: string): LinkedPerson {
   return {
@@ -52,5 +60,27 @@ describe("groupRelatives", () => {
     const g = groupRelatives("kid", rows);
     expect(g.parents.map((r) => r.person.id)).toEqual(["me"]);
     expect(g.children).toHaveLength(0);
+  });
+});
+
+describe("siblings from the whole tree", () => {
+  const p = (a: string, b: string) => ({ type: "parent", person_a: a, person_b: b });
+  const s = (a: string, b: string) => ({ type: "sibling", person_a: a, person_b: b });
+  // grandpa → dad, grandpa → uncle; dad ~ aunt (sibling link only)
+  const links = [p("grandpa", "dad"), p("grandpa", "uncle"), s("aunt", "dad"), p("dad", "me")];
+
+  it("finds siblings through a shared parent", () => {
+    expect(impliedSiblingIds("dad", links)).toEqual(["uncle"]);
+    expect(allSiblingIds("dad", links).sort()).toEqual(["aunt", "uncle"]);
+    expect(impliedSiblingIds("me", links)).toEqual([]);
+  });
+
+  it("doesn't repeat a sibling who also has a direct link", () => {
+    expect(impliedSiblingIds("dad", [...links, s("dad", "uncle")])).toEqual([]);
+  });
+
+  it("lists parents and children", () => {
+    expect(parentIds("uncle", links)).toEqual(["grandpa"]);
+    expect(childIds("grandpa", links).sort()).toEqual(["dad", "uncle"]);
   });
 });

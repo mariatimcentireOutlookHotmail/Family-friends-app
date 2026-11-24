@@ -10,7 +10,8 @@
     "loadError": "无法加载此人的信息。",
     "retry": "重试",
     "you": "你",
-    "relationToYou": "与你的关系：{relation}"
+    "relationToYou": "与你的关系：{relation}",
+    "viaParents": "同父或同母"
   },
   "sections": {
     "parents": "父母",
@@ -65,7 +66,18 @@
       "tooManyParents": "此人已经有两位亲生父母。",
       "duplicate": "这两个人已经以这种方式关联。",
       "notAllowed": "你可以查看这个家谱，但不能修改。",
-      "failed": "无法添加此人，请重试。"
-    }
+      "failed": "无法添加此人，请重试。",
+      "partlyLinked": "已添加这个人，但部分关系没能建立：{reason}"
+    },
+    "modeLabel": "你要添加谁？",
+    "modeNew": "新的人",
+    "modeExisting": "家谱里已有的人",
+    "pickExisting": "选择谁是{name}的{relation}（可以选多位）",
+    "search": "搜索",
+    "noOneToPick": "家谱里没有其他人可以这样关联。",
+    "linkSubmit": "{count, plural, =0 {关联} other {关联 # 人}}",
+    "linking": "正在关联…",
+    "alsoChildOfParents": "同时作为{names}的孩子（这样通过父母成为兄弟姐妹）",
+    "alsoParentOf": "同时也是以下的人的父母："
   }
 }

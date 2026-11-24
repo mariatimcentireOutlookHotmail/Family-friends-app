@@ -8,6 +8,7 @@ import { NameEditor, draftFromName, draftsToNames, emptyName, type NameDraft } f
 import { Button } from "@/components/ui/Button";
 import { ChoiceChips } from "@/components/ui/ChoiceChips";
 import { ConfirmAction } from "@/components/ui/ConfirmAction";
+import { SocialEditor } from "@/components/SocialLinks";
 import { TextField } from "@/components/ui/TextField";
 import { useAuth } from "@/lib/auth";
 import { dateToDraft, draftToDate, eventToDate, hasHiddenParts, toPayload, type DateDraft } from "@/lib/dates";
@@ -21,6 +22,7 @@ import {
   useSavePerson,
   type PersonDetails,
 } from "@/lib/people";
+import type { SocialLinks } from "@/lib/social";
 import type { LinkedPerson } from "@/lib/relatives";
 import { primaryName, type Sex } from "@/lib/trees";
 
@@ -83,6 +85,7 @@ function EditForm({ person }: { person: PersonDetails }) {
   const [phone, setPhone] = useState(saved?.phone ?? "");
   const [email, setEmail] = useState(saved?.email ?? "");
   const [address, setAddress] = useState(saved?.address ?? "");
+  const [social, setSocial] = useState<SocialLinks>(saved?.social ?? {});
   const [nameErrors, setNameErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [deleteError, setDeleteError] = useState<string | null>(null);
@@ -120,7 +123,7 @@ function EditForm({ person }: { person: PersonDetails }) {
         death: isDeceased ? toPayload(draftToDate(death)) : null,
         country: country === "other" ? null : country,
         // Contacts the user can't see are left unchanged.
-        contacts: canSeeContacts ? { phone, email, address } : null,
+        contacts: canSeeContacts ? { phone, email, address, social } : null,
       },
       {
         onSuccess: leave,
@@ -266,6 +269,7 @@ function EditForm({ person }: { person: PersonDetails }) {
                   multiline
                   maxLength={500}
                 />
+                <SocialEditor value={social} onChange={setSocial} />
               </>
             ) : (
               <Text className="text-sm text-gray-600 dark:text-gray-400">{t("contacts.hiddenNote", { ns: "privacy" })}</Text>

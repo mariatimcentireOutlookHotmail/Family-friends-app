@@ -1,0 +1,26 @@
+{
+  "title": "家谱",
+  "open": "打开家谱图",
+  "showInTree": "在家谱图中查看",
+  "view": {
+    "label": "视图",
+    "family": "全家",
+    "ancestors": "祖先",
+    "descendants": "后代"
+  },
+  "generations": {
+    "label": "代数",
+    "value": "{count} 代",
+    "fewer": "减少代数",
+    "more": "增加代数"
+  },
+  "friends": "朋友",
+  "zoomIn": "放大",
+  "zoomOut": "缩小",
+  "fit": "全部显示",
+  "backToMe": "回到我",
+  "you": "我",
+  "hint": "拖动可移动，双指捏合或点 + 和 − 可缩放。点卡片打开资料；长按可让家谱以此人为中心。",
+  "notFound": "找不到这个家谱。",
+  "empty": "这个家谱里还没有人。"
+}

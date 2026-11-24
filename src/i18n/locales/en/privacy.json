@@ -47,10 +47,23 @@
   "note": {
     "title": "About privacy",
     "link": "How we protect your family's privacy",
-    "body1": "Family & Friends stores the family trees you create: names, how people are related, birth and death dates, and contact details you add.",
+    "body1": "MyOrbit stores the family trees you create: names, how people are related, birth and death dates, and contact details you add.",
     "body2": "Only members of a family tree can see it. Within the tree, birth dates (day and month) are visible to immediate family by default, and contact details are private by default. Each person can change this for their own profile.",
     "body3": "Children below their country's age limit are shown to others as \"Private family member\"; only their close family can see their details.",
     "body4": "Birth and death years are visible to the whole tree, so ages and kinship words can be worked out. People who have died are shown to the whole family tree.",
     "body5": "Your data is stored with Supabase. It is never sold or shown to anyone outside your family trees."
+  },
+  "social": {
+    "title": "Social links",
+    "add": "Add a link",
+    "remove": "Remove {platform}",
+    "website": "Website",
+    "hint": {
+      "username": "Username or link",
+      "phone": "Phone number with country code, e.g. +62 811 1234 5678",
+      "id": "ID",
+      "url": "Link"
+    },
+    "copyHint": "WeChat ID (search for it in WeChat)"
   }
 }

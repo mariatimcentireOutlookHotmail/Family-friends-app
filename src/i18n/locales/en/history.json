@@ -1,0 +1,63 @@
+{
+  "title": "History",
+  "treeHeading": "Recent changes in {tree}",
+  "personHeading": "Changes to {name}",
+  "open": "History",
+  "recent": "Recent changes",
+  "empty": "No changes yet.",
+  "you": "You",
+  "someone": "Someone",
+  "ownersNote": "Every change is kept here. Tree owners can undo a change.",
+  "undo": "Undo",
+  "undone": "Undone",
+  "undoOf": "Undid an earlier change",
+  "showMore": "Show more",
+  "loadError": "Couldn't load the history.",
+  "retry": "Try again",
+  "none": "not set",
+  "event": {
+    "birth": "birth",
+    "death": "death"
+  },
+  "kind": {
+    "parent": "parent",
+    "partner": "partners",
+    "sibling": "siblings",
+    "friend": "friends"
+  },
+  "lines": {
+    "personAdded": "Added {name}",
+    "personDeleted": "Removed {name}",
+    "claimed": "{name} joined and claimed their profile",
+    "sexChanged": "Changed sex from {from} to {to}",
+    "livingChanged": "Changed from {from} to {to}",
+    "countryChanged": "Changed country from {from} to {to}",
+    "birthOrderChanged": "Changed birth order from {from} to {to}",
+    "nameChanged": "Changed name from {from} to {to}",
+    "nameAdded": "Added the name {name}",
+    "nameRemoved": "Removed the name {name}",
+    "dateAdded": "Added the {event} year {year}",
+    "dateChanged": "Changed the {event} year from {from} to {to}",
+    "dateRemoved": "Removed the {event} date",
+    "dayMonthChanged": "Changed a day and month",
+    "contactsChanged": "Updated contact details",
+    "linkAddedParent": "Added {a} as a parent of {b}",
+    "linkAdded": "Linked {a} and {b} ({kind})",
+    "linkRemoved": "Removed the link between {a} and {b}",
+    "linkChanged": "Changed the link between {a} and {b}",
+    "treeLinked": "Linked {name} with the “{tree}” tree",
+    "treeUnlinked": "Unlinked {name} from the “{tree}” tree",
+    "storyAdded": "Shared a story about {name}: “{title}”",
+    "storyEdited": "Edited a story about {name}: “{title}”",
+    "storyRemoved": "Removed a story about {name}: “{title}”",
+    "memorialOn": "Made {name}'s profile a memorial",
+    "memorialOff": "Turned off the memorial for {name}"
+  },
+  "errors": {
+    "notAllowed": "Only tree owners can undo changes.",
+    "conflict": "This can't be undone because it was changed again afterwards. Undo the newer change first.",
+    "claimed": "This profile belongs to someone else now, so only they can change it.",
+    "alreadyUndone": "This change was already undone.",
+    "failed": "Couldn't undo. Please try again."
+  }
+}

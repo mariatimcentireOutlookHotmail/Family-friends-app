@@ -1,0 +1,20 @@
+{
+  "title": "即将到来的生日",
+  "none": "未来 {days} 天内没有生日。",
+  "someone": "某人",
+  "today": "今天",
+  "tomorrow": "明天",
+  "inDays": "{count} 天后 · {date}",
+  "turns": "满 {age} 岁",
+  "privacyNote": "只列出你有权查看的生日。",
+  "remind": "在这台手机上提醒我",
+  "remindHint": "当天 9:00 发送通知。",
+  "turnedOn": "这台手机已开启生日提醒。",
+  "denied": "MyOrbit 的通知已关闭，你可以在手机设置中开启。",
+  "channel": "生日",
+  "notification": {
+    "title": "今天有人过生日",
+    "body": "今天是{name}的生日。",
+    "bodyAge": "{name}今天满 {age} 岁。"
+  }
+}

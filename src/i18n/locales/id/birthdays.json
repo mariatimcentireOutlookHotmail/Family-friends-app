@@ -1,0 +1,20 @@
+{
+  "title": "Ulang tahun mendatang",
+  "none": "Tidak ada ulang tahun dalam {days} hari ke depan.",
+  "someone": "Seseorang",
+  "today": "Hari ini",
+  "tomorrow": "Besok",
+  "inDays": "{count} hari lagi · {date}",
+  "turns": "genap {age} tahun",
+  "privacyNote": "Hanya ulang tahun yang boleh Anda lihat yang ditampilkan.",
+  "remind": "Ingatkan saya di ponsel ini",
+  "remindHint": "Notifikasi pukul 09.00 pada hari itu.",
+  "turnedOn": "Pengingat aktif di ponsel ini.",
+  "denied": "Notifikasi MyOrbit dimatikan. Anda bisa mengizinkannya di pengaturan ponsel.",
+  "channel": "Ulang tahun",
+  "notification": {
+    "title": "Ulang tahun hari ini",
+    "body": "Hari ini {name} berulang tahun.",
+    "bodyAge": "Hari ini {name} genap {age} tahun."
+  }
+}

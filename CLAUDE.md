@@ -1,9 +1,14 @@
-# Family & Friends app
+# MyOrbit (family & friends app)
 
 A free, non-commercial family and friends app (a family tree that grows through
 invitations), built solo as a practice project. One TypeScript codebase for iOS,
 Android and web. Full plan: `projectPlan.doc`. Ask before changing anything the
 plan marks as a decision.
+
+The app is called **MyOrbit** in every language (never translate the name). The
+logo is a sun with family "planets" on two crossing orbits; the source drawing is
+`assets/logo/myorbit.svg`. If the logo changes, regenerate every PNG in
+`assets/` from it (icon, Android layers, splash, favicon).
 
 ## How to work with me (the developer)
 
@@ -23,7 +28,7 @@ plan marks as a decision.
 | App | React Native + Expo (SDK 58), Expo Router, TypeScript (strict) |
 | Styling | NativeWind v4 (Tailwind CSS 3) via `className` |
 | Data fetching | TanStack Query + Supabase JS client (`src/lib/supabase.ts`) |
-| Tree rendering | react-native-svg, d3-hierarchy for layout math only (not added yet) |
+| Tree rendering | react-native-svg, d3-hierarchy for layout math only |
 | Gestures | react-native-gesture-handler + Reanimated |
 | Backend | Supabase: Postgres, Auth, Row-Level Security, Storage, Edge Functions |
 | i18n | i18next + react-i18next + i18next-icu, expo-localization, Intl APIs |
@@ -182,6 +187,22 @@ npx expo start -c         # clear Metro cache (after changing tailwind or babel 
 - Destructive actions use `ConfirmAction` (an in-page "Are you sure?"), not
   system alert dialogs, which don't work the same on the web.
 
+- Everyday name: lists, tree cards, relatives and history show a person's
+  nickname, or else their first "also known as" name (`knownAs()`,
+  `everydayName()`), with the full name beside it.
+  Their own page and forms use the main name.
+
+### Adding and connecting relatives
+
+- "Add a relative" has two modes: someone new (`add_relative`) or someone
+  already in the tree (`link_people`, all-or-nothing, several people at once).
+- Suggestions keep the tree connected: a new full sibling becomes a child of
+  the same parent(s); a new parent can also become the parent of the
+  person's siblings. Siblings through a shared parent are shown on a
+  person's page ("Through a shared parent") without needing a sibling link.
+- Whole-tree helpers (`parentIds`, `childIds`, `impliedSiblingIds`, ...) live
+  in `src/lib/relatives.ts` and are tested there.
+
 ### Kinship words
 
 - Code: `src/lib/kinship/` — `path.ts` finds the shortest path from the
@@ -196,6 +217,170 @@ npx expo start -c         # clear Metro cache (after changing tailwind or babel 
 - Elder/younger comes from birth years, then birth order.
 - Every new term needs a test in `src/lib/kinship/kinship.test.ts`, and a
   native-speaker check before release.
+
+### Tree view
+
+- Layout: `src/lib/treeLayout.ts` is pure TypeScript (no React). It returns card
+  positions and line points for one focus person: parents and grandparents up
+  (father left), partners right, siblings left, children down, friends right
+  (optional layer). Modes: family, ancestors, descendants; 1–5 generations.
+  Every layout change needs a test in `treeLayout.test.ts`, including "no two
+  cards overlap".
+- A child's other parent counts as a partner for layout, even without a
+  partner link.
+- Drawing: `src/components/TreeCanvas.tsx` — SVG lines under absolutely
+  positioned cards, moved and zoomed with gesture-handler v3 hooks
+  (`usePanGesture`, `usePinchGesture`) and Reanimated shared values. Keep
+  gesture code in worklets so it runs on the UI thread. Zoom buttons must stay,
+  because the web has no pinch.
+- Tap a card opens the person; long-press re-centres. The home list and card
+  views stay as the fallback for screen readers and very large trees.
+- `GestureHandlerRootView` wraps the whole app in `src/app/_layout.tsx`.
+
+### Invites and claiming
+
+- Database: `supabase/migrations/20261120080000_invites.sql`; app: `src/lib/invites.ts`,
+  `src/components/InviteSection.tsx`, `src/app/person/[id]/invite.tsx`, `src/app/join.tsx`.
+- Codes are 12 characters (`XXXX-XXXX-XXXX`, no look-alike letters), stored only
+  as a SHA-256 hash, single-use, 14 days, cancellable; one open invite per person.
+  The plain code is shown once, right after it's made.
+- Owners and editors invite. Claimed, deceased and under-age people can't be
+  invited. Accepting makes the person an editor (owners/editors keep their role).
+- All checks live in the database functions (`create_invite`, `invite_preview`,
+  `accept_invite`, `revoke_invite`). Errors carry a machine key in `hint`
+  (e.g. `invite_expired`), mapped to text by `inviteErrorKey()`.
+- Wrong codes are rate-limited (10 per hour per user). A wrong code returns
+  null/"invalid" instead of raising, so the failed attempt is kept.
+- The shared message is written in the language the inviter picks
+  (`i18n.getFixedT(lang, "invite")`). It includes a link
+  (`https://myorbit.click/join?code=…`, `joinLink()` in `src/lib/joinLinks.ts`)
+  and the code for typing in the app. A link opened while signed out keeps its
+  code through sign-in (`src/lib/pendingJoin.ts`); the home screen then opens
+  the join screen, which checks the code straight away.
+
+### Contacts, social links, theme, test accounts
+
+- Social links (`src/lib/social.ts`, `SocialLinks.tsx`) live in
+  `person_contacts.social` as `{platform: text}` and follow the "contact"
+  privacy level. Only known platforms; `socialUrl()` only ever builds https
+  links (WeChat has none: the ID is shown to copy). Platform names are brand
+  names and aren't translated.
+- Colour themes (`src/lib/palettes.ts`: Indigo, Sky, Sage, Earth): the
+  Tailwind `gray-*`, `indigo-*` (= accent), `white` and `black` classes read CSS
+  variables (tailwind.config.js), set at the root with NativeWind `vars()`.
+  Keep using only those colour names (plus red/green/amber for status) so
+  every theme works; for SVG or props that need a colour value, use
+  `usePaletteColors()`, never a hex code.
+- Appearance (Automatic / Light / Dark) is saved per device (`src/lib/theme.ts`).
+  `darkMode: "class"`, so "Automatic" is resolved from `Appearance` in code.
+  Every screen needs `dark:` colours; headers follow via `ThemeProvider`.
+- `DevSignIn` (password sign-in) shows only when `__DEV__` is true, for testing
+  a second account. Test users are made in the Supabase dashboard. Never show
+  it in release builds.
+
+### History and undo
+
+- `supabase/migrations/20261120100000_change_log.sql`: triggers log every change
+  to persons, person_names, events, event_dates, person_contacts and
+  relationships into `change_log` (before/after JSON, actor, time). One
+  transaction = one group (`txid`) = one entry in the app, undone together.
+- Deleting a person or a life date snapshots what goes with it; cascaded rows
+  aren't logged separately. Whole-tree deletes skip logging.
+- Read only through `tree_history()` (filters hidden minors, contacts and
+  day/month by the viewer's rights). Undo only through `undo_change()`:
+  owners only, refuses if the rows changed since (`history_conflict`) or the
+  profile is claimed by someone else (`history_claimed`). Undos are logged too.
+- New tables that hold family data need a `log_change` trigger and a branch in
+  `private.record_change` / `historySummary.ts`, plus tests in
+  `tests/db/changeLog.test.ts`.
+- `src/lib/historySummary.ts` turns groups into readable lines (pure, tested);
+  `src/app/history/[treeId].tsx` shows them (`?person=` for one person).
+- DB tests run in one transaction, so `step()` sets `myorbit.change_group` to
+  separate groups. The app never sets it.
+
+### Linked trees
+
+- `supabase/migrations/20261120110000_tree_links.sql`: an owner of tree A makes
+  a link code for a person (`create_link_code`, same code rules as invites); an
+  owner of tree B enters it on the join screen (`code_preview` tells invites and
+  link codes apart) and picks the same person (`accept_link`). Either tree's
+  owner can `unlink_trees`. Minors can't be linked.
+- Members of either tree see the other family's version of the person and
+  their close family via `person_links` — names, nickname, sex and years only;
+  never contacts, full dates or minors. Link tables aren't readable directly.
+- Linking/unlinking is written to both trees' History and can't be undone
+  there (`history_not_undoable`), because it needs both families.
+- App: `src/lib/treeLinks.ts`, `src/components/LinkedTrees.tsx`,
+  `src/app/person/[id]/link-tree.tsx`, `src/app/join.tsx`.
+
+### Photos
+
+- `supabase/migrations/20261121000000_photos.sql`: private Storage bucket
+  `media`, files at `<tree>/<person>/<photo id>.jpg` and `..._thumb.jpg`, one
+  `public.media` row per photo (caption, profile flag, uploader). Rules on
+  both the table and `storage.objects`; tests use a storage stub in
+  `tests/db/supabase-stub.sql`.
+- Visible to everyone who can see the person (never hidden minors). Added by
+  owners, editors and the person themself; changed/deleted by the uploader,
+  the person and owners. Exactly one profile photo per person with photos,
+  kept by the database (first photo becomes it; deleting it promotes the
+  newest remaining); `set_profile_photo` changes it. Lists, cards and the tree
+  show it via `useProfilePhotos(treeId)` and `Avatar`.
+- Phones upload with the native uploader (`expo-file-system/legacy`
+  `uploadAsync`); `fetch(file).arrayBuffer()` sends a 14-byte scrap on
+  Android. The photo viewer is a screen (`src/app/photo/[id].tsx`), not a
+  Modal (Modals didn't draw correctly on Android).
+- The app resizes before upload (`src/lib/photos.ts`: ≤1600 px and ≤400 px
+  JPEG) — Supabase image transforms are a paid feature, so don't rely on them.
+  On phones the picker's own crop screen opens after picking
+  (`allowsEditing`; Android free crop and rotate, iOS square only); the web
+  has none, so photos are used as picked there.
+  Files are shown through short-lived signed links, never public URLs.
+- Delete files before the row (the file rule checks the row). Deleting a
+  person removes their photo rows but leaves the files (clean-up later);
+  undoing a person's deletion doesn't bring photos back.
+
+### Stories and memorials
+
+- `supabase/migrations/20261121020000_stories_memorials.sql`: `stories` (title,
+  body, language tag, author), `memorials` + `memorial_stewards`. Stories are
+  read by everyone who can see the person; written by owners, editors and the
+  person themself, and by any member on a memorial; edited by the author or a
+  steward; deleted by author, the person, owners or stewards. Stewards also
+  manage photos on a memorial. Owners turn memorials on with `set_memorial`
+  (deceased only, stewards must be members, max 5).
+- Stories and memorials are logged in History (`log_pk` knows `memorials`),
+  so a deleted story can be undone. Stories are never machine-translated; the
+  app shows "Written in …" when the language differs from the app's.
+- App: `src/lib/stories.ts`, `src/components/PersonStories.tsx`,
+  `src/app/person/[id]/story.tsx`, `src/app/person/[id]/memorial.tsx`.
+
+### Birthdays and reminders
+
+- `public.my_birthdays()` (security invoker): living people's birth day/month
+  that the caller may see; RLS on `event_dates` does the privacy work.
+- `src/lib/birthdays.ts`: next birthday, days away, age; 29 Feb → 28 Feb in
+  other years (tested). Home shows the next 30 days (`Birthdays.tsx`).
+- Reminders are local notifications (`expo-notifications`, `src/lib/reminders.ts`):
+  switch per phone (AsyncStorage), 9:00 on the day, the next 60 days (max 40)
+  re-planned whenever the list loads; tapping opens the person. No server,
+  no push tokens. Not on the web.
+
+### Website (myorbit.click)
+
+- Hosted on Cloudflare (Workers static assets, free). `wrangler.jsonc` points
+  at `./dist` with single-page-app fallback (any address → `index.html`).
+  Cloudflare builds on every push to `main`: build command `npm run build:web`,
+  deploy command `npx wrangler deploy`. Build variables set in Cloudflare:
+  `EXPO_PUBLIC_SUPABASE_URL`, `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY`,
+  `EXPO_PUBLIC_WEB_URL=https://myorbit.click`. Node version: `.node-version`.
+- Only static files: no server code, no data. The browser talks to Supabase
+  directly; the database rules protect everything as on phones.
+- `public/` is copied into the site: `_headers` (no search engines, no framing,
+  basic browser protections) and `robots.txt`.
+- Supabase Auth → URL Configuration: Site URL `https://myorbit.click`.
+- Sign-in emails go through Resend (custom SMTP in Supabase), sent from the
+  verified domain; the templates must contain `{{ .Token }}` (6-digit code).
 
 ### Database changes
 

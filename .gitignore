@@ -70,3 +70,6 @@ yarn-error.*
 .DS_Store
 Thumbs.db
 .idea/
+
+# Cloudflare tools (local cache)
+.wrangler/

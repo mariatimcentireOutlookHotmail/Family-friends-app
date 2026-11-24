@@ -11,5 +11,18 @@
     "notConfigured": "尚未设置：请在 .env 文件中添加 Supabase 的 URL 和密钥",
     "badKey": "Supabase 拒绝了密钥：请检查 .env 中的密钥",
     "unreachable": "无法连接到 Supabase：请检查网络连接和 .env 中的 URL"
+  },
+  "theme": {
+    "label": "外观",
+    "system": "自动",
+    "light": "浅色",
+    "dark": "深色"
+  },
+  "palette": {
+    "label": "配色",
+    "indigo": "靛蓝",
+    "sky": "天空",
+    "sage": "青绿",
+    "earth": "大地"
   }
 }

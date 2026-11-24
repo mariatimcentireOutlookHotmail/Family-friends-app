@@ -11,5 +11,18 @@
     "notConfigured": "Not set up yet: add your Supabase URL and key to the .env file",
     "badKey": "Supabase rejected the key: check the key in .env",
     "unreachable": "Can't reach Supabase: check your internet connection and the URL in .env"
+  },
+  "theme": {
+    "label": "Appearance",
+    "system": "Automatic",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "palette": {
+    "label": "Colours",
+    "indigo": "Indigo",
+    "sky": "Sky",
+    "sage": "Sage",
+    "earth": "Earth"
   }
 }

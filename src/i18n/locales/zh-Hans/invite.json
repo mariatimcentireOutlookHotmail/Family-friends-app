@@ -1,0 +1,53 @@
+{
+  "section": {
+    "title": "邀请{name}",
+    "body": "给{name}发送邀请码，让对方加入 MyOrbit 并管理自己的资料。",
+    "button": "邀请{name}",
+    "pending": "邀请已于{sent}发出，邀请码有效期至{expires}。",
+    "newCode": "生成新邀请码",
+    "cancel": "取消邀请",
+    "cancelled": "邀请已取消。"
+  },
+  "screen": {
+    "title": "邀请",
+    "heading": "邀请{name}",
+    "langLabel": "消息语言",
+    "create": "生成邀请码",
+    "creating": "正在生成…",
+    "codeLabel": "邀请码",
+    "codeNote": "请只把这个邀请码发给{name}。邀请码只能使用一次，14 天后失效。它不会再次显示，但你随时可以生成新的。",
+    "share": "分享",
+    "shareFailed": "此设备无法打开分享，请复制下面的消息。",
+    "messageLabel": "消息",
+    "done": "完成"
+  },
+  "message": "{name}你好！我已把你加入 MyOrbit 上的家谱“{tree}”。加入方法：打开下面的链接，用邮箱登录：\n{link}\n\n或者打开 MyOrbit 应用，点“有邀请码？”，输入：{code}\n\n邀请码只能使用一次，14 天后失效。",
+  "join": {
+    "homeButton": "有邀请码？",
+    "title": "输入邀请码",
+    "body": "收到亲友发来的码了吗？请在这里输入：可以是加入家谱的邀请码，也可以是关联两个家谱的关联码。",
+    "codeLabel": "邀请码或关联码",
+    "check": "检查邀请码",
+    "checking": "正在检查…",
+    "previewWithInviter": "{inviter}邀请你以下面的身份加入“{tree}”：",
+    "preview": "你受邀以下面的身份加入“{tree}”：",
+    "claimNote": "接受后，这份资料就归你所有：只有你能修改其中的信息，你也可以往家谱里添加亲人。",
+    "thisIsMe": "这就是我",
+    "joining": "正在加入…",
+    "notMe": "这不是我",
+    "notMeNote": "那就不要接受。请发送邀请码的人确认这是谁的资料。"
+  },
+  "errors": {
+    "invalid": "这个邀请码无效，请检查后重试。",
+    "used": "这个邀请已经被使用。",
+    "revoked": "这个邀请已被取消，请索取新的邀请码。",
+    "expired": "这个邀请已过期，请索取新的邀请码。",
+    "tooManyTries": "错误次数过多，请一小时后再试。",
+    "alreadyInTree": "你在这个家谱里已经有资料了。",
+    "notAllowed": "只有家谱的所有者和编辑者可以发送邀请。",
+    "blocked_claimed": "这份资料已经有主人了。",
+    "blocked_deceased": "已故的人不能被邀请。",
+    "blocked_minor": "未达到年龄限制的孩子不能被邀请，等他们长大后可以认领自己的资料。",
+    "failed": "出了点问题，请重试。"
+  }
+}

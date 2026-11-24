@@ -1,0 +1,53 @@
+{
+  "title": "Cerita",
+  "none": "Belum ada cerita tentang {name}.",
+  "noneMemorial": "Bagikan kenangan tentang {name}.",
+  "add": "Bagikan cerita",
+  "edit": "Ubah",
+  "delete": "Hapus",
+  "deleteConfirm": "Hapus cerita ini untuk semua orang?",
+  "deleteYes": "Ya, hapus",
+  "keep": "Simpan saja",
+  "by": "{author} · {date}",
+  "someone": "Seseorang",
+  "you": "Anda",
+  "writtenIn": "Ditulis dalam {language}",
+  "deleteFailed": "Cerita tidak bisa dihapus. Silakan coba lagi.",
+  "screen": {
+    "newTitle": "Bagikan cerita",
+    "editTitle": "Ubah cerita",
+    "heading": "Cerita tentang {name}",
+    "headingMemorial": "Kenangan tentang {name}",
+    "titleLabel": "Judul (opsional)",
+    "titleHint": "mis. Awal kami bertemu, Rendang andalannya",
+    "bodyLabel": "Cerita",
+    "bodyHint": "Tulis seperti Anda menceritakannya.",
+    "langLabel": "Bahasa yang Anda pakai",
+    "langNote": "Cerita tidak diterjemahkan; orang lain membacanya seperti yang Anda tulis.",
+    "save": "Simpan",
+    "saving": "Menyimpan…",
+    "needBody": "Tulis beberapa kata dulu.",
+    "failed": "Cerita tidak bisa disimpan. Silakan coba lagi."
+  },
+  "memorial": {
+    "banner": "Dalam kenangan",
+    "bannerYears": "Dalam kenangan · {years}",
+    "settings": "Pengaturan kenangan",
+    "title": "Profil kenangan",
+    "explain": "Profil kenangan untuk orang yang sudah wafat. Semua anggota pohon bisa membagikan kenangan tentang {name}, dan pengurus yang Anda pilih menjaga profil ini: mereka bisa merapikan atau menghapus cerita dan foto.",
+    "switch": "Jadikan profil kenangan",
+    "stewards": "Pengurus (maksimal 5)",
+    "stewardsHint": "Anggota pohon yang menjaga profil ini.",
+    "noName": "Anggota tanpa profil ({role})",
+    "role": {
+      "owner": "pemilik",
+      "editor": "editor",
+      "viewer": "pembaca"
+    },
+    "save": "Simpan",
+    "saving": "Menyimpan…",
+    "saved": "Tersimpan.",
+    "failed": "Tidak bisa menyimpan. Silakan coba lagi.",
+    "tooMany": "Pilih paling banyak 5 pengurus."
+  }
+}

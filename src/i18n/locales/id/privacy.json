@@ -47,10 +47,23 @@
   "note": {
     "title": "Tentang privasi",
     "link": "Cara kami melindungi privasi keluarga Anda",
-    "body1": "Keluarga & Teman menyimpan pohon keluarga yang Anda buat: nama, hubungan antar orang, tanggal lahir dan wafat, serta kontak yang Anda tambahkan.",
+    "body1": "MyOrbit menyimpan pohon keluarga yang Anda buat: nama, hubungan antar orang, tanggal lahir dan wafat, serta kontak yang Anda tambahkan.",
     "body2": "Hanya anggota pohon keluarga yang dapat melihatnya. Di dalam pohon, tanggal lahir (tanggal dan bulan) secara bawaan hanya terlihat oleh keluarga inti, dan kontak bersifat pribadi. Setiap orang dapat mengubah pengaturan ini untuk profilnya sendiri.",
     "body3": "Anak di bawah batas usia negaranya ditampilkan kepada orang lain sebagai \"Anggota keluarga (privat)\"; hanya keluarga dekatnya yang dapat melihat datanya.",
     "body4": "Tahun lahir dan wafat terlihat oleh seluruh pohon agar usia dan sebutan kekerabatan dapat ditentukan. Orang yang sudah meninggal ditampilkan kepada seluruh pohon keluarga.",
     "body5": "Data Anda disimpan di Supabase. Data tidak pernah dijual atau ditampilkan kepada siapa pun di luar pohon keluarga Anda."
+  },
+  "social": {
+    "title": "Media sosial",
+    "add": "Tambah tautan",
+    "remove": "Hapus {platform}",
+    "website": "Situs web",
+    "hint": {
+      "username": "Nama pengguna atau tautan",
+      "phone": "Nomor telepon dengan kode negara, mis. +62 811 1234 5678",
+      "id": "ID",
+      "url": "Tautan"
+    },
+    "copyHint": "ID WeChat (cari di WeChat)"
   }
 }

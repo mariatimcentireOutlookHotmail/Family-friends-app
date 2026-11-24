@@ -1,0 +1,15 @@
+// Hosting for the web version of MyOrbit on Cloudflare (Workers static assets).
+// Cloudflare builds the site with `npm run build:web` and uploads ./dist.
+// There is no server code here: the site is just the app's files, and the
+// app talks to Supabase directly. Setup steps: CLAUDE.md, "Website".
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "myorbit",
+  "compatibility_date": "2026-11-23",
+  "assets": {
+    "directory": "./dist",
+    // Every address that isn't a file (/join, /person/…) gets the app's
+    // index.html, and the app shows the right screen.
+    "not_found_handling": "single-page-application"
+  }
+}

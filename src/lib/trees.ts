@@ -112,17 +112,15 @@ export function useCreateTree() {
   });
 }
 
-type HasNames = { person_names: PersonName[] };
+// Name helpers live in ./names (pure, so they are easy to test).
+export { akaNames, everydayName, knownAs, nickname, primaryName } from "./names";
 
-/** The name to show for a person: their main name, or the first one. */
-export function primaryName(person: HasNames): string | null {
-  const names = person.person_names ?? [];
-  return (names.find((n) => n.is_primary) ?? names[0])?.full_display ?? null;
-}
-
-/** "Also known as" names, e.g. the English name of a Chinese person. */
-export function akaNames(person: HasNames): string[] {
-  return (person.person_names ?? [])
-    .filter((n) => !n.is_primary && n.type === "aka")
-    .map((n) => n.full_display);
+/** "1955" or "1930–2001" from birth/death years, if known. */
+export function lifeYears(person: { events?: { type: "birth" | "death"; year: number | null }[] }): string | null {
+  const birth = person.events?.find((e) => e.type === "birth")?.year ?? null;
+  const death = person.events?.find((e) => e.type === "death")?.year ?? null;
+  if (birth && death) return `${birth}–${death}`;
+  if (birth) return `${birth}`;
+  if (death) return `–${death}`;
+  return null;
 }
